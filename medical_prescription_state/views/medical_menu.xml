@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2015 LasLabs Inc.
+    Copyright 2020 LabViv.
+    License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+    <!-- Prescription [Config/Prescription] -->
+    <menuitem
+        id="medical_root_prescription"
+        name="Prescription"
+        parent="medical.medical_root_sub"
+        sequence="190"
+        groups="medical.group_medical_user"
+    />
+    <!-- Medical Prescription Order States  ( Config/Prescription/Order States) )-->
+    <menuitem
+        id="medical_prescription_order_state"
+        name="Order States"
+        parent="medical_root_prescription"
+        sequence="50"
+        action="medical_prescription_order_state_action"
+        groups="medical.group_medical_user"
+    />
+</odoo>

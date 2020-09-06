@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+	Copyright 2011-2020 GNU Solidario
+	Copyright 2020 LabViv.
+	License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+	<!-- Person Names -->
+	<record model="ir.ui.view" id="medical_person_name_form">
+		<field name="name">medical.person.name.form</field>
+		<field name="model">medical.person.name</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form>
+				<field name="use"/>
+				<newline/>
+				<field name="family"/>
+				<field name="given"/>
+				<field name="prefix"/>
+				<field name="suffix"/>
+				<newline/>
+				<field name="date_from"/>
+				<field name="date_to"/>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="medical_person_name_tree">
+		<field name="name">medical.person.name.tree</field>
+		<field name="model">medical.person.name</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree editable="top">
+				<field name="use"/>
+				<field name="prefix"/>
+				<field name="given"/>
+				<field name="family"/>
+				<field name="suffix"/>
+			</tree>
+		</field>	
+	</record>
+</odoo>

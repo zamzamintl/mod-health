@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+	Copyright 2011-2020 GNU Solidario
+	Copyright 2020 LabViv.
+	License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+<!-- Insurances plans -->
+	<record model="ir.ui.view" id="medical_insurance_plan_form">
+		<field name="name">medical.insurance.plan.form</field>
+		<field name="model">medical.insurance.plan</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form>
+				<label name="name"/>
+				<field name="name"/>
+				<newline/>
+				<label name="company"/>
+				<field name="company"/>
+				<label name="is_default"/>
+				<field name="is_default"/>
+				<newline/>
+				<field name="notes" colspan="4"/>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="medical_insurance_plan_tree">
+		<field name="name">medical.insurance.plan.tree</field>
+		<field name="model">medical.insurance.plan</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="is_default"/>
+			</tree>
+		</field>
+	</record>
+
+<!-- Insurances companies -->
+	<record model="ir.actions.act_window" id="medical_action_insurance_company">
+		 <field name="name">Insurance Company</field>
+		 <field name="res_model">res.partner</field>
+		 <field name="view_mode">form,tree</field>
+		 <field name="domain" eval="[('is_insurance_company', '=', True)]" pyson="1"/>
+	</record>
+
+	<record model="ir.ui.view" id="act_insurance_company_list_view">
+		<field name="sequence" eval="10"/>
+		<field name="view" ref="medical_insurance_view_tree"/>
+		<field name="act_window" ref="medical_action_insurance"/>
+	</record>
+	
+	<record model="ir.ui.view" id="act_insurance_company_form_view">
+		<field name="sequence" eval="20"/>
+		<field name="view" ref="medical_insurance_view_form"/>
+		<field name="act_window" ref="medical_action_insurance"/>
+	</record>
+
+	<menuitem 
+		id="medical_conf_edit_insurance_company"
+		name="Insurance Plan"
+		action="medical_action_insurance_company"
+		parent="medical_conf_insurances" 
+		sequence="2"
+		groups="health_family.group_health_family_admin"
+		/>
+</odoo>

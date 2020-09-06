@@ -1,0 +1,187 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* medical_pathology
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: Chrisely Núñez <nchrisely@gmail.com>\n"
+"POT-Creation-Date: 2020-08-01 19:05+0000\n"
+"PO-Revision-Date: 2020-08-01 19:05+0000\n"
+"Last-Translator: Chrisely Núñez <nchrisely@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: medical_pathology
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_view_search
+msgid "Affected Chromosome"
+msgstr "Cromosoma afectado"
+
+#. module: medical_pathology
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_view_search
+msgid "Category"
+msgstr "Categoría"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology__category_id
+msgid "Category of Pathology"
+msgstr "Categoría de la patología"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_category__child_ids
+msgid "Children Categories"
+msgstr "Categorías de niños"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology__child_ids
+msgid "Children Pathologies"
+msgstr "Patologías infantiles"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology__code_type_id
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_category__code_type_id
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_category_view_search
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_view_search
+msgid "Code Type"
+msgstr "Tipo de código"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_code_type__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_code_type__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_code_type__display_name
+msgid "Display Name"
+msgstr "Nombra para mostrar"
+
+#. module: medical_pathology
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_view_search
+msgid "Gene"
+msgstr "Gen"
+
+#. module: medical_pathology
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_category_view_search
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_view_search
+msgid "Group By..."
+msgstr "Agrupado por ..."
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_code_type__id
+msgid "ID"
+msgstr "Identificación"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_code_type____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_code_type__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_code_type__write_date
+msgid "Last Updated on"
+msgstr "Última actualización"
+
+#. module: medical_pathology
+#: model:ir.model,name:medical_pathology.model_medical_pathology
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_view_form
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_view_search
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_view_tree
+msgid "Medical Pathology"
+msgstr "Patología médica"
+
+#. module: medical_pathology
+#: model:ir.model,name:medical_pathology.model_medical_pathology_category
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_category_view_form
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_category_view_search
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_category_view_tree
+msgid "Medical Pathology Category"
+msgstr "Categoría de patología médica"
+
+#. module: medical_pathology
+#: model:ir.model,name:medical_pathology.model_medical_pathology_code_type
+msgid "Medical Pathology Code Type"
+msgstr "Tipo de código de patología médica"
+
+#. module: medical_pathology
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_view_form
+msgid "Misc"
+msgstr "Misceláneos"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_code_type__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_category__notes
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_view_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology_category__parent_id
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_category_view_search
+msgid "Parent Category"
+msgstr "Categoría superior"
+
+#. module: medical_pathology
+#: model:ir.model.fields,field_description:medical_pathology.field_medical_pathology__parent_id
+msgid "Parent Pathology"
+msgstr "Patología principal"
+
+#. module: medical_pathology
+#: model:ir.actions.act_window,name:medical_pathology.medical_pathology_action
+#: model:ir.ui.menu,name:medical_pathology.medical_pathology
+msgid "Pathologies"
+msgstr "Patologías"
+
+#. module: medical_pathology
+#: model:ir.ui.menu,name:medical_pathology.medical_root_pathology
+msgid "Pathology"
+msgstr "Patología"
+
+#. module: medical_pathology
+#: model:ir.actions.act_window,name:medical_pathology.medical_pathology_category_action
+#: model:ir.ui.menu,name:medical_pathology.medical_pathology_category
+msgid "Pathology Categories"
+msgstr "Categorías de patologícas"
+
+#. module: medical_pathology
+#: model:ir.ui.menu,name:medical_pathology.medical_pathology_group
+msgid "Pathology Group"
+msgstr "Grupo de patología"
+
+#. module: medical_pathology
+#: model:ir.model.constraint,message:medical_pathology.constraint_medical_pathology_code_and_type_uniq
+msgid "Pathology codes must be unique per code type."
+msgstr "El código debe ser únicos por cada tipo"
+
+#. module: medical_pathology
+#: model_terms:ir.ui.view,arch_db:medical_pathology.medical_pathology_view_search
+msgid "Protein involved"
+msgstr "Proteína involucrada"
+
+#. module: medical_pathology
+#: code:addons/medical_pathology/models/medical_pathology_category.py:0
+#, python-format
+msgid "You are attempting to create a recursive category."
+msgstr "Está intentando crear una categoría recursiva"
+
+#. module: medical_pathology
+#: code:addons/medical_pathology/models/medical_pathology.py:0
+#, python-format
+msgid "You are attempting to create a recursive pathology."
+msgstr "Está intentando crear una patología recursiva"

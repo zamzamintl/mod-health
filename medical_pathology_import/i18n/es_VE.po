@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * medical_pathology_import
+#
+# Translators:
+# enjolras <yo@miguelrevilla.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: Chrisely Núñez <nchrisely@gmail.com>\n"
+"POT-Creation-Date: 2018-02-09 17:52+0000\n"
+"PO-Revision-Date: 2018-02-09 17:52+0000\n"
+"Last-Translator: Chrisely Núñez <nchrisely@gmail.com>\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,field_description:medical_pathology_import.field_medical_pathology_import_code_type_id
+msgid "Code Type"
+msgstr "Tipo de código"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,field_description:medical_pathology_import.field_medical_pathology_import_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,field_description:medical_pathology_import.field_medical_pathology_import_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,field_description:medical_pathology_import.field_medical_pathology_import_display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,field_description:medical_pathology_import.field_medical_pathology_import_id
+msgid "ID"
+msgstr "Ientificación"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,help:medical_pathology_import.field_medical_pathology_import_code_type_id
+msgid ""
+"Identifies the code type that is being imported. If you are not sure what to "
+"choose, select an importer first and leave the resulting default"
+msgstr "Identifica el tipo de código que se está importando. Si no está seguro de qué elegir, seleccione e importe primero y deje el resultado predeterminado"
+
+#. module: medical_pathology_import
+#: model:ir.actions.act_window,name:medical_pathology_import.medical_pathology_import_action
+#: model:ir.ui.menu,name:medical_pathology_import.medical_pathology_import_menu
+msgid "Import Data"
+msgstr "Importar datos"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,field_description:medical_pathology_import.field_medical_pathology_import_importer_type
+msgid "Importer Type"
+msgstr "Tipo de importe"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,field_description:medical_pathology_import.field_medical_pathology_import___last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,field_description:medical_pathology_import.field_medical_pathology_import_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,field_description:medical_pathology_import.field_medical_pathology_import_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: medical_pathology_import
+#: model:ir.model,name:medical_pathology_import.model_medical_pathology_import
+msgid "Medical Pathology Import"
+msgstr "Importar la patología"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,help:medical_pathology_import.field_medical_pathology_import_file_name
+msgid "Name of file (inside of ZIP) representing full tabular XML"
+msgstr "Nombre del archivo (dentro del ZIP) representa el  tabular completo XML"
+
+#. module: medical_pathology_import
+#: model:ir.actions.client,name:medical_pathology_import.medical_pathology_import_action_install
+msgid "Pathology Import - Post-Install Action"
+msgstr "Importación de patología - Acción post-instalación"
+
+#. module: medical_pathology_import
+#: model:ir.ui.view,arch_db:medical_pathology_import.medical_pathology_import_view_form
+msgid "Remote Pathology Data Import"
+msgstr "Importación de datos de patología via remota"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,help:medical_pathology_import.field_medical_pathology_import_zip_uri
+msgid "URI to full ZIP file"
+msgstr "URI al archivo ZIP completo"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,field_description:medical_pathology_import.field_medical_pathology_import_file_name
+msgid "XML File Name"
+msgstr "Nombre del archivo XML"
+
+#. module: medical_pathology_import
+#: model:ir.model.fields,field_description:medical_pathology_import.field_medical_pathology_import_zip_uri
+msgid "ZIP File URI"
+msgstr "Archivo ZIP URI"

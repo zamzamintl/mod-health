@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2011-2020 GNU Solidario
+Copyright 2020 LabViv.
+License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+	<record model="ir.ui.view" id="medical_birth_cert_form">
+		<field name="name">medical.birth.certificate.form</field>
+		<field name="model">medical.birth.certificate</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form>
+				<group colspan="4" string="Main" id="group_birth_cert_header">
+					<label name="name"/>
+					<field name="name"/>
+					<label name="dob"/>
+					<field name="dob"/>
+					<newline/>
+					<label name="mother"/>
+					<field name="mother"/>
+					<label name="father"/>
+					<field name="father"/>
+					<newline/>
+					<label name="institution"/>
+					<field name="institution"/>
+					<label name="code"/>
+					<field name="code"/>
+					<newline/>
+					<label name="country"/>
+					<field name="country"/>
+					<label name="country_subdivision"/>
+					<field name="country_subdivision"/>
+				</group>
+				<newline/>
+				<separator colspan="4" string="Observations" id="separator_birth_cert_observations"/>
+				<newline/>
+				<field name="observations" colspan="4"/>
+				<group id="birth_certificate_footer" colspan="4" col="8">
+					<label name="state"/>
+					<field name="state"/>
+					<label name="signed_by"/>
+					<field name="signed_by"/>
+					<label name="certification_date"/>
+					<field name="certification_date"/>
+					<button name="sign" help="Sign the certificate" string="Sign" confirm="Sign Birth Certificate ?"/>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="medical_birth_cert_tree">
+		<field name="name">medical.birth.certificate.tree</field>
+		<field name="model">medical.birth.certificate</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="code"/>
+				<field name="dob"/>
+				<field name="signed_by" tree_invisible="1"/>
+				<field name="institution" tree_invisible="1"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- birth Certificate menu entry in demographics -->
+	<record model="ir.actions.act_window" id="act_birth_cert_form">
+		<field name="name">Birth certificates</field>
+		<field name="res_model">medical.birth.certificate</field>
+		<field name="view_mode">form</field>
+	</record>
+	<!-- Shortcut to the birth Certificate from the Partner -->
+	<record model="ir.actions.act_window" id="act_birth_cert_form1">
+		<field name="name">Birth Certificate</field>
+		<field name="res_model">medical.birth.certificate</field>
+		<field name="domain" eval="[('name', '=', Eval('active_id'))]" pyson="1"/>
+	</record>
+
+	<record model="ir.action.keyword" id="act_open_birth_cert_keyword1">
+		<field name="keyword">form_relate</field>
+		<field name="model">res.partner,-1</field>
+		<field name="action" ref="act_birth_cert_form1"/>
+	</record>
+
+	<menuitem 
+		id="menu_birth_cert"
+		name='Birth Certificate'
+		parent="family_menu_main"
+		action="act_birth_cert_form"
+	/>
+
+</odoo>

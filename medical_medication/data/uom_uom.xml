@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data >
+
+        <record id="product_uom_ml" model="uom.uom">
+            <field name="name">mL</field>
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="uom_type">smaller</field>
+            <field name="factor" eval="1000"/>
+        </record>
+        <record id="mg" model="uom.uom">
+            <field name="name">mg</field>
+            <field name="factor" eval="10000"/>
+            <field name="category_id" ref="uom.product_uom_categ_kgm"/>
+            <field name="uom_type">smaller</field>
+        </record>
+        <record id="mmol" model="uom.uom">
+            <field name="name">mmol</field>
+            <field name="factor" eval="1"/>
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="uom_type">smaller</field>
+        </record>
+        <record id="ug" model="uom.uom">
+            <field name="name">ug</field>
+            <field name="factor" eval="100000"/>
+            <field name="category_id" ref="uom.product_uom_categ_kgm"/>
+            <field name="uom_type">smaller</field>
+        </record>
+
+    </data>
+</odoo>

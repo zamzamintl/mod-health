@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2011-2020 GNU Solidario
+Copyright 2020 LabViv.
+License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+	<record model="ir.ui.view" id="medical_underlying_condition_form">
+		<field name="name">medical.death.underlying.condition.form</field>
+		<field name="model">medical.death.underlying.condition</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form>
+				<label name="condition"/>
+				<field name="condition"/>
+				<label name="interval"/>
+				<field name="interval"/>
+				<label name="unit_of_time"/>
+				<field name="unit_of_time"/>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="medical_underlying_condition_tree">
+		<field name="name">medical.death.underlying.condition.tree</field>
+		<field name="model">medical.death.underlying.condition</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree editable="top">
+				<field name="condition"/>
+				<field name="interval"/>
+				<field name="unit_of_time"/>
+			</tree>
+		</field>
+	</record>
+</odoo

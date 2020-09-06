@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+	Copyright 2011-2020 GNU Solidario
+	Copyright 2020 LabViv.
+	License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+<!-- Family -->
+	<record model="ir.ui.view" id="health_family_form">
+		<field name="name">health.family.form</field>
+		<field name="model">medical.family</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form>
+				<group id="family_header">
+					<field name="name"/>
+				</group>
+				<newline/>
+				<separator string="Members" id="members"/>
+				<newline/>
+				<field name="members"/>
+				<newline/>
+				<separator string="Extra Info" id="extra_info"/>
+				<newline/>
+				<field name="info"/>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="health_family_tree">
+		<field name="name">health.family.tree</field>
+		<field name="model">medical.family</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="info"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="medical_action_family">
+		<field name="name">Families</field>
+        <field name="type">ir.actions.act_window</field>
+		<field name="res_model">medical.family</field>
+		<field name="view_id" ref="health_family_form"/>
+	</record>
+
+	<!-- <record model="ir.ui.view" id="act_family_list_view">
+		<field name="sequence" eval="10"/>
+		<field name="view" ref="medical_family_tree"/>
+		<field name="act_window" ref="medical_action_family"/>
+	</record> -->
+</odoo>
+
+
+<!--
+	<record model="ir.ui.view" id="health_family.list">
+	  <field name="name">health_family list</field>
+	  <field name="model">health_family.health_family</field>
+	  <field name="arch" type="xml">
+		<tree>
+		  <field name="name"/>
+		  <field name="value"/>
+		  <field name="value2"/>
+		</tree>
+	  </field>
+	</record>
+-->
+
+	<!-- actions opening views on models -->
+<!--
+	<record model="ir.actions.act_window" id="health_family.action_window">
+	  <field name="name">health_family window</field>
+	  <field name="res_model">health_family.health_family</field>
+	  <field name="view_mode">tree,form</field>
+	</record>
+-->

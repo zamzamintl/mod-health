@@ -1,0 +1,315 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* health_vaccination
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: Ángel Ramírez Isea <angel.ramirez.isea@yandex.com>\n"
+"POT-Creation-Date: 2020-09-01 22:10+0000\n"
+"PO-Revision-Date: 2020-09-01 22:10+0000\n"
+"Last-Translator: Ángel Ramírez Isea <angel.ramirez.isea@yandex.com>, 2020\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__admin_site
+msgid "Admin Site"
+msgstr "Sitio de administración"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__amount
+msgid "Amount"
+msgstr "Cantidad"
+
+#. module: health_vaccination
+#: model:ir.model.fields,help:health_vaccination.field_medical_vaccination__amount
+msgid ""
+"Amount of vaccine administered, in mL . The dose per mL         (eg, mcg, "
+"EL.U ..) can be found at the related medicament"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields,help:health_vaccination.field_medical_insurance_template__is_vaccine
+#: model:ir.model.fields,help:health_vaccination.field_medical_medicament__is_vaccine
+#: model:ir.model.fields,help:health_vaccination.field_product_product__is_vaccine
+#: model:ir.model.fields,help:health_vaccination.field_product_template__is_vaccine
+msgid "Check if the medicament is a vaccine"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: health_vaccination
+#: model_terms:ir.ui.view,arch_db:health_vaccination.medical_vaccination_view_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__state__done
+msgid "Done"
+msgstr "Listo"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__dose
+msgid "Dose"
+msgstr "Dosis"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__vaccine_expiration_date
+msgid "Expiration date"
+msgstr "Fecha de exp."
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__healthprof_id
+msgid "Health Prof"
+msgstr "Prof. de la salud"
+
+#. module: health_vaccination
+#: model:ir.model.fields,help:health_vaccination.field_medical_vaccination__signed_by
+msgid "Health Professional that signed the vaccination document"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields,help:health_vaccination.field_medical_vaccination__healthprof_id
+msgid ""
+"Health Professional who administered or reviewed the vaccine         "
+"information"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__id
+msgid "ID"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__state__in_progress
+msgid "In Progress"
+msgstr "En desarrollo"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_route__id
+msgid "Intradermal"
+msgstr "Intradérmica"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_route__im
+msgid "Intramuscular"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_route__nas
+msgid "Intranasal"
+msgstr ""
+
+#. module: health_vaccination
+#: model_terms:ir.ui.view,arch_db:health_vaccination.view_product_product_search_vaccine
+msgid "Is Vaccine"
+msgstr "Es vacuna"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_insurance_template__is_vaccine
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_medicament__is_vaccine
+#: model:ir.model.fields,field_description:health_vaccination.field_product_product__is_vaccine
+#: model:ir.model.fields,field_description:health_vaccination.field_product_template__is_vaccine
+msgid "Is vaccine?"
+msgstr "¿Es vacuna?"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__vaccine_lot
+msgid "Lot Number"
+msgstr "Lote No."
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__institution_id
+msgid "Medical Center"
+msgstr "Centro médico"
+
+#. module: health_vaccination
+#: model:ir.model.fields,help:health_vaccination.field_medical_vaccination__institution_id
+msgid "Medical Center where the patient is being or was vaccinated"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model,name:health_vaccination.model_medical_patient
+msgid "Medical Patient"
+msgstr "Paciente médico"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__next_dose_date
+msgid "Next Dose"
+msgstr "Próxima dosis"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__observations
+msgid "Observations"
+msgstr "Observaciones"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_route__po
+msgid "Oral"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__patient_id
+msgid "Patient"
+msgstr "Paciente"
+
+#. module: health_vaccination
+#: model:ir.model,name:health_vaccination.model_medical_vaccination
+msgid "Patient Vaccination information"
+msgstr "Información de vacunación"
+
+#. module: health_vaccination
+#: model:ir.model.fields,help:health_vaccination.field_medical_vaccination__vaccine_lot
+msgid ""
+"Please check on the vaccine (product) production lot number and tracking "
+"number when available!"
+msgstr ""
+
+#. module: health_vaccination
+#: model:ir.model,name:health_vaccination.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__admin_route
+msgid "Route"
+msgstr "Ruta"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__signed_by
+msgid "Signed by"
+msgstr "Firmado por"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__state
+msgid "State"
+msgstr "Estado"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_route__sc
+msgid "Subcutaneous"
+msgstr "Subcutánea"
+
+#. module: health_vaccination
+#: model:ir.actions.act_window,name:health_vaccination.medical_vaccination_action
+#: model:ir.ui.menu,name:health_vaccination.medical_vaccination
+#: model_terms:ir.ui.view,arch_db:health_vaccination.medical_patient_vaccination_view_form
+#: model_terms:ir.ui.view,arch_db:health_vaccination.medical_vaccination_view_form
+msgid "Vaccination"
+msgstr "Vacunación"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_patient__vaccination_ids
+msgid "Vaccinations"
+msgstr "Vacunaciones"
+
+#. module: health_vaccination
+#: model:ir.model.fields,field_description:health_vaccination.field_medical_vaccination__vaccine_id
+msgid "Vaccine"
+msgstr "Vacuna"
+
+#. module: health_vaccination
+#: model:ir.model.fields,help:health_vaccination.field_medical_vaccination__vaccine_id
+msgid ""
+"Vaccine Name. Make sure that the vaccine has all the proper information at "
+"product level. Information such as provider, supplier code, tracking number,"
+" etc.. This  information must always be present. If available, please copy /"
+" scan the vaccine leaflet and attach it to this record"
+msgstr ""
+
+#. module: health_vaccination
+#: model_terms:ir.ui.view,arch_db:health_vaccination.medical_vaccination_view_form
+msgid "Validate"
+msgstr "Validar"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_site__lalt
+msgid "left anterolateral fat of thigh"
+msgstr "grasa anterolateral izquierda del muslo"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_site__ld
+msgid "left deltoid"
+msgstr "deltoide izquierdo"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_site__lfa
+msgid "left fore arm"
+msgstr "antebrazo izquierdo"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_site__lpua
+msgid "left posterolateral fat of upper arm"
+msgstr "grasa posterolateral izquierda del brazo"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_site__lvl
+msgid "left vastus lateralis"
+msgstr "vastus lateralis izquierdo"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_site__ralt
+msgid "right anterolateral fat of thigh"
+msgstr "grasa anterolateral derecha del muslo"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_site__rd
+msgid "right deltoid"
+msgstr "deltoide derecho"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_site__rfa
+msgid "right fore arm"
+msgstr "antebrazo derecho"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_site__rpua
+msgid "right posterolateral fat of upper arm"
+msgstr "grasa posterolateral derecha del brazo"
+
+#. module: health_vaccination
+#: model:ir.model.fields.selection,name:health_vaccination.selection__medical_vaccination__admin_site__rvl
+msgid "right vastus lateralis"
+msgstr "vastus lateralis derecho"
+
+#. module: health_vaccination
+#: model_terms:ir.ui.view,arch_db:health_vaccination.medical_vaccination_view_form
+msgid "you are sure to validate the vaccination process?"
+msgstr "confirma que valida el proceso de vacunación?"

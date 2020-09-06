@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright 2020 LabViv.
+ License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
+-->
+<odoo>
+    <data>
+
+        <record id="seq_medical_appointment" model="ir.sequence">
+            <field name="name">Appointment</field>
+            <field name="code">medical.appointment</field>
+            <field name="prefix">APP ${year}/</field>
+            <field eval="0" name="padding"/>
+        </record>
+
+    </data>
+</odoo>

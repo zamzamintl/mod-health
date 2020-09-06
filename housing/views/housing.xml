@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2008 Luis Falcon <lfalcon@gnusolidario.org>
+    Copyright 2020 LabViv.
+    License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+    <record id="housing_view_tree" model="ir.ui.view">
+        <field name="name">housing.du.tree</field>
+        <field name="model">housing.du</field>
+        <field name="mode">primary</field>
+        <field name="priority" eval="16" />
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="desc" />
+                <field name="full_address" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="housing_view_form" model="ir.ui.view">
+        <field name="name">housing.du.form</field>
+        <field name="model">housing.du</field>
+        <field name="mode">primary</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="desc" />
+                        <field name="address_street" />
+                        <field name="address_street_number" />
+                        <field name="address_street_bis" />
+                    </group>
+                    <notebook>
+                        <page name="locale" string="Localización geográfica">
+                            <group col="2">
+                                <group  string="Localidad" >
+                                    <field
+                                        name="address_country"
+                                        widget="one2many_list" />
+                                    <field
+                                        name="address_city"
+                                        widget="one2many_list"
+                                        />
+                                    <field name="address_municipality"/>
+                                    <field
+                                        name="address_zip" />
+                                </group>
+                                <group string="Localización espacial">
+                                    <field name="latitude" />
+                                    <field name="longitude" />
+                                    <field name="altitude" />
+                                </group>
+                            </group>
+                        </page>
+                        <page name="familiar" string="Miembros de la familia">
+                            <field
+                                name="members"
+                                string="Miembros de la familia"
+                                editable="bottom">
+                                <tree>
+                                    <field name="display_name" string="Nombre"/>
+                                    <field name="vat" string="Cédula" />
+                                    <field name="phone" string="Teléfono" />
+                                    <field name="email" string='Correo eléctronico'/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="superficie" string="Datos de la vivienda">
+                            <group col="3">
+                                <group col="1">
+                                    <field name="total_surface"  />
+                                </group>
+                                <group col="1">
+                                    <field name="bedrooms"  />
+                                </group>
+                                <group col="1">
+                                    <field name="bathrooms"  />
+                                </group>
+                            </group>
+                            <group col="1">
+                                <group string="Fachada">
+                                    <group>
+                                        <field name="dwelling" />
+                                        <field name="materials" />
+                                    </group>
+                                    <group>
+                                        <field name="roof_type" />
+                                        <field name="housing" />
+                                    </group>
+                                </group>
+                                <group string="Cuenta con...">
+                                    <group>
+                                        <field name="sewers" />
+                                        <field name="water" />
+                                        <field name="trash" />
+                                        <field name="electricity" />
+                                    </group>
+                                    <group>
+                                        <field name="gas" />
+                                        <field name="telephone" />
+                                        <field name="television" />
+                                        <field name="internet" />
+                                    </group>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="housing_action" model="ir.actions.act_window">
+        <field name="name">Unidad de vivienda</field>
+        <field name="res_model">housing.du</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

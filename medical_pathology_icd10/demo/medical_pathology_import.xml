@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2015 Acsone.
+    Copyright 2016 LasLabs Inc.
+    Copyright 2020 LabViv.
+    License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+    <record id="medical_pathology_import_1_demo" model="medical.pathology.import">
+        <field name="code_type_id" ref="medical_pathology.pathology_code_05"/>
+        <field name="file_name">icd10cm_tabular_2017.xml</field>
+        <field name="importer_type">icd10</field>
+        <field name="zip_uri">
+            ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/ICD10CM/2017/ICD10CM_FY2017_Full_XML.zip
+        </field>
+    </record>
+</odoo>

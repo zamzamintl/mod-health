@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+	Copyright 2011-2020 GNU Solidario
+	Copyright 2020 LabViv.
+	License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+	<record model="ir.ui.view" id="medical.person_alternative_identification_form">
+		<field name="name">medical.person.alternative.identification.form</field>
+		<field name="model">medical.person.alternative.identification</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form>
+				<label name="code"/>
+				<field name="code"/>
+				<label name="alternative_id_type"/>
+				<field name="alternative_id_type"/>
+				<label name="comments"/>
+				<field name="comments"/>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="medical.person_alternative_identification_tree">
+		<field name="name">medical.alternative.identification.tree</field>
+		<field name="model">medical.person.alternative.identification</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree editable="top">
+				<field name="code"/>
+				<field name="alternative_id_type"/>
+				<field name="comments"/>
+			</tree>
+		</field>
+	</record>
+</odoo>

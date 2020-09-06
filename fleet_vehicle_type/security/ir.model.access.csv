@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+agui_fleet_vehicle_type,agui_fleet_vehicle_type_all,model_fleet_vehicle_type,,1,1,1,0

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- Copyright 2020 LabViv.
+   License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).-->
+
+<odoo>
+    <data>
+   		 <record id="gnuhealth_ophthalmology_evaluation_action" model="ir.actions.act_window">
+            <field name="name">ophthalmology.evaluation.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ophthalmology.evaluation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Ophthalmologic evaluations" parent="health.gnuhealth_reporting_menu" id="gnuhealth_ophthalmology_evaluation_menu" action="gnuhealth_ophthalmology_evaluation_action" icon="gnuhealth-list"/>
+
+	</data>
+</odoo>

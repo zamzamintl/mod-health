@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--Copyright 2011-2020 GNU Solidario>
+	Copyright 2020 LabViv
+	License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
+ -->
+<odoo>
+	
+	<record model="ir.ui.view" id="medical_surgery_supply_form">
+		<field name="name">medical.surgery.supply.form</field>
+		<field name="model">medical.surgery_supply</field>
+		<field name="arch" type="xml">
+			<form>
+				<field name="name"/>
+				<field name="qty"/>
+				<field name="supply"/>
+				<field name="qty_used"/>
+				<field name="notes"/>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="medical_surgery_supply_tree">
+		<field name="name">medical.surgery.supply.tree</field>
+		<field name="model">medical.surgery_supply</field>
+		<field name="arch" type="xml">
+			<tree editable="top">
+				<field name="qty"/>
+				<field name="supply"/>
+				<field name="qty_used"/>
+				<field name="notes"/>
+			</tree>
+		</field>
+	</record>
+</odoo>

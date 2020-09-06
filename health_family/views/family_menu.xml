@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+	Copyright 2011-2020 GNU Solidario
+	Copyright 2020 LabViv.
+	License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+	<menuitem
+		id="root_family_menu"
+		name="Families"
+		sequence="10"
+		web_icon="health_family,static/description/icon.png"
+		action="medical_action_family" 
+	/>
+	<menuitem
+		id="family_menu_main"
+		name="Family"
+		parent="root_family_menu"
+		sequence="10"
+	/>
+	<menuitem
+		id="family_menu"
+		name="Family"
+		parent="family_menu_main"
+		sequence="10"
+	/>
+	<menuitem
+		id="family_members_menu"
+		name="Family Members"
+		parent="family_menu_main"
+		sequence="10"
+		action="medical_action_family_member"
+	/>
+</odoo>

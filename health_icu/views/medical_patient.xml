@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+    <!--
+        Copyright 2020 LabViv.
+        License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
+    -->
+<odoo>
+    <record id="icu_medical_patient_view_form" model="ir.ui.view">
+        <field name="name">inpatient.icu.form</field>
+        <field name="model">inpatient.icu</field>
+        <field name="arch" type="xml">
+            <form>
+                    <group colspan="4">
+                        <field name="name"/>
+                        <field name="admitted"/>
+                    </group>
+                    <newline/>
+                    <group id="icu_group_dates" string="Period" col="8" colspan="4">
+                        <field name="icu_admission_date"/>
+                        <field name="icu_stay"/>
+                        <field name="discharged_from_icu"/>
+                        <field name="icu_discharge_date"/>
+                    </group>
+                    <newline/>
+                    <field name="mv_history" colspan="4"/>
+                </form>
+        </field>
+    </record>
+    <record id='icu_medical_patient_view_tree' model='ir.ui.view'>
+        <field name="name">Inpatient ICU</field>
+        <field name="model">inpatient.icu</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="admitted" />
+                <field name="icu_admission_date" />
+                <field name="discharged_from_icu"/>
+                <field name="icu_discharge_date"/>
+                <field name="icu_stay"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

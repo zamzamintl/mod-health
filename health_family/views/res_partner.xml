@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!--
+	Copyright 2011-2020 GNU Solidario
+	Copyright 2020 LabViv.
+	License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+	<record model="ir.ui.view" id="view_partner_form">
+		<field name="name">partner_form</field>
+		<field name="model">partner</field>
+		<field name="inherit" ref="partner_view_form"/>
+			<xpath expr="/form/notebook/page[@id=&quot;general&quot;]" position="before">
+				<page string="Health" id="partner_medical">
+					<group col="12" colspan="4" id="partner_specs">
+						<field name="is_person"/>
+						<field name="is_patient"/>
+						<field name="is_healthprof"/>
+						<field name="is_institution"/>
+						<field name="is_insurance_company"/>
+						<field name="is_pharmacy"/>
+					</group>
+					<newline/>
+					<group colspan="4" id="person_details">
+						<group yfill="1" id="person_demographics" string="Demographics">
+							<field name="dob"/>
+							<field name="age"/>
+							<newline/>
+							<field name="gender"/>
+							<field name="du"/>
+							<field name="mother"/>
+							<field name="father"/>
+							<field name="marital_status"/>
+							<field name="citizenship"/>
+							<field name="residence"/>
+							<field name="ethnic_group"/>
+							<newline/>
+							<field name="alternative_identification"/>
+							<field name="du_address"/>
+						</group>
+						<group yfill="1" string="Picture" id="person_picture">
+							<field xfill="0" xexpand="1" name="photo" height="200" width="200" widget="image"/>
+						</group>
+						<newline/>
+					</group>
+					<newline/>
+					<field colspan="4" name="alternative_ids"/>
+					<field colspan="4" name="insurance"/>
+					<newline/>
+					<group id="partner_footer" colspan="4" col="12">
+						<field name="deceased"/>
+						<field name="unidentified"/>
+						<field name="fed_country"/>
+						<field name="federation_account"/>
+						<field name="activation_date"/>
+						<field name="internal_user"/>
+					</group>
+				</page>
+			</xpath>
+			<xpath expr="/form/field[@name=&quot;name&quot;]" position="after">
+				<field name="lastname"/>
+			</xpath>
+	
+	<!-- Use the SSN field in the place of the partner code -->
+			<xpath expr="/form/field[@name=&quot;code&quot;]" position="replace">
+				<field name="ref"/>
+			</xpath>
+
+	<!-- Add the person names on the partner identifier section page -->
+			<xpath expr="//field[@name=&quot;identifiers&quot;]" position="before">
+				<field name="person_names" colspan="4"/>
+				<newline/>
+				<field name="name_representation"/>
+				<newline/>
+			</xpath>
+	</record>
+
+	<!-- Add "People" menu at partner level -->
+
+	<record model="ir.actions.act_window" id="act_people_form">
+		<field name="name">People</field>
+		<field name="res_model">partner</field>
+		<field name="domain" eval="[('is_person', '=', True)]" pyson="1"/>
+	</record>
+
+	<menuitem 
+		id="menu_people"
+		name="People"
+		parent="family_menu_main" 
+		sequence="1"
+		action="act_people_form" 
+	/>
+
+
+	<!-- Add the Lastname and SSN (ref) field to the tree view of the partner -->
+
+	<record model="ir.ui.view" id="party_view_tree">
+		<field name="name">party_tree</field>
+		<field name="model">party.party</field>
+		<field name="inherit" ref="party.party_view_tree"/>
+		<data>
+
+			<xpath expr="/tree/field[@name=&quot;code&quot;]" position="replace">
+				<field name="ref" tree_invisible="1"/>
+				<field name="federation_account"/>        
+			</xpath>
+
+			<xpath expr="/tree/field[@name=&quot;name&quot;]" position="after">
+				<field name="lastname"/>
+				<field name="is_person"/>
+				<field name="is_patient"/>
+				<field name="is_healthprof"/>
+				<field name="is_institution"/>
+				<field name="is_pharmacy" tree_invisible="1"/>
+				<field name="is_insurance_company" tree_invisible="1"/>
+				<field name="deceased"/>
+				<field name="code" tree_invisible="1"/>
+			</xpath>
+
+			<xpath expr="/tree/field[@name=&quot;tax_identifier&quot;]" position="replace_attributes">
+				<field name="tax_identifier" tree_invisible="1"/>
+			</xpath>
+
+			<xpath expr="/tree/field[@name=&quot;lang&quot;]" position="replace_attributes">
+				<field name="lang" tree_invisible="1"/>
+			</xpath>
+
+		</data>
+
+	</record>
+</odoo>

@@ -1,0 +1,454 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* housing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: Chrisely Núñez <nchrisely@gmail.com>\n"
+"POT-Creation-Date: 2020-07-23 22:48+0000\n"
+"PO-Revision-Date: 2020-07-23 22:48+0000\n"
+"Last-Translator: LabViv Chrisely Núñez <nchrisely@gmail.com>, 2020\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__materials__adobe
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__roof_type__adobe
+msgid "Adobe"
+msgstr "Adobe"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__altitude
+msgid "Altitude"
+msgstr "Altitud"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__dwelling__anexo
+msgid "Annexed"
+msgstr "Anexo"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__dwelling__apartamento
+msgid "Apartament"
+msgstr "Apartamento"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__address_street_bis
+msgid "Apartament"
+msgstr "Apartamento"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__materials__mud
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__roof_type__mud
+msgid "Mud"
+msgstr "Barro"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__bathrooms
+msgid "Bathrooms"
+msgstr "Baños"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__housing__2
+msgid "Good conditions"
+msgstr "Buen Estado"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__dwelling__mobilehome
+msgid "Trailer"
+msgstr "Casa Rodante"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.view_res_partner_form
+#: model_terms:ir.ui.view,arch_db:housing.housing_view_form
+msgid "Identification Card"
+msgstr "Cédula"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__name
+msgid "Code"
+msgstr "Código"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__address_zip
+msgid "Postal Code"
+msgstr "Código Postal"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__materials__concrete
+msgid "Concrete"
+msgstr "Concreto"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__roof_type__concrete
+msgid "Concrete"
+msgstr "Concreto / Placa"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__housing
+msgid "conditions"
+msgstr "Condiciones"
+
+#. module: housing
+#: model:ir.model,name:housing.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.housing_view_form
+msgid "Mail"
+msgstr "Correo"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__water
+msgid "Has water service"
+msgstr "Tiene servicio de agua"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__gas
+msgid "Has gas service"
+msgstr "Tiene servicio de gas"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__internet
+msgid "Has internet service"
+msgstr "Tiene servicio de internet"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__electricity
+msgid "Has electricity"
+msgstr "Cuenta con servicio eléctrico"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__telephone
+msgid "Has telephone service"
+msgstr "Tiene servicio telefónico"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__television
+msgid "Has tv signal"
+msgstr "Tiene señal de tv"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__sewers
+msgid "Has a sewer system"
+msgstr "Tiene sistema de alcantarillado"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.housing_view_form
+msgid "Has"
+msgstr "Cuenta con"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.housing_view_form
+msgid "Housing Data"
+msgstr "Datos de Vivienda"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__housing__0
+msgid "Deficient"
+msgstr "Deficiente"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__desc
+msgid "Description"
+msgstr "Descripción"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__full_address
+msgid "Address"
+msgstr "Dirección"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: housing
+#: model:ir.model,name:housing.model_housing_du
+msgid "Domiciliary Unit"
+msgstr "Unidad Domiciliaria"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__bedrooms
+msgid "Bedrooms"
+msgstr "Dormitorios"
+
+#. module: housing
+#: model:ir.model.constraint,message:housing.constraint_housing_du_code_uniq
+msgid "The code must be unique"
+msgstr "El código debe ser único"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__housing__3
+msgid "Excellent conditions"
+msgstr "Excelentes condiciones"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.housing_view_form
+msgid "Facade"
+msgstr "Fachada"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.view_res_partner_form
+msgid "Birth date"
+msgstr "Fecha de nacimiento"
+
+#. module: housing
+#: model:ir.ui.menu,name:housing.housing_crud_menu
+msgid "Housing Management"
+msgstr "Gestión de vivienda"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__dwelling__habitacion
+msgid "Room"
+msgstr "Habitación"
+
+#. module: housing
+#: model:ir.ui.menu,name:housing.main_housing_menu
+#: model:ir.model.fields,field_description:housing.field_medical_abstract_entity__housing
+#: model:ir.model.fields,field_description:housing.field_medical_center__housing
+#: model:ir.model.fields,field_description:housing.field_medical_insurance_company__housing
+#: model:ir.model.fields,field_description:housing.field_medical_practitioner__housing
+#: model:ir.model.fields,field_description:housing.field_res_partner__housing
+#: model:ir.model.fields,field_description:housing.field_res_users__housing
+msgid "Housing"
+msgstr "Vivienda"
+
+#. module: housing
+#: model:ir.model.fields,help:housing.field_medical_patient__housing
+msgid "Housing and sanitary living conditions"
+msgstr "Condiciones sanitarias y de vivienda"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_medical_patient__housing
+msgid "Housing conditions"
+msgstr "Condiciones de vivienda"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__id
+msgid "ID"
+msgstr "identificación"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__dwelling__single_house
+msgid "Individual / Independent"
+msgstr "Individual / Independiente"
+
+#. module: housing
+#: model:ir.model.fields,help:housing.field_housing_du__housing
+msgid "Sanitary Information"
+msgstr "Informacion Sanitaria"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__latitude
+msgid "Latitude"
+msgstr "Latitud"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.housing_view_form
+msgid "Location"
+msgstr "Localidad"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.housing_view_form
+msgid "Spaial location"
+msgstr "Ubicación espacial"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.housing_view_form
+msgid "Geographical location"
+msgstr "Ubicación geográfica"
+
+#. module: housing
+#: model:ir.model.fields,help:housing.field_housing_du__urladdr
+msgid "Locates the DU on the Open Street Map by default"
+msgstr "Ubicar la vivienda predeterminadamente en Open Street Map"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__longitude
+msgid "Longitude"
+msgstr "Longitud"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__housing__4
+msgid "Luxurious"
+msgstr "Lujoso"
+
+#. module: housing
+#: model:ir.model.fields,help:housing.field_housing_du__altitude
+msgid "M.A.S.L."
+msgstr "M.S.N.M "
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__materials__wood
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__roof_type__wood
+msgid "Wood"
+msgstr "Madera"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__materials
+msgid "Construction material"
+msgstr "Material de construcción"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__members
+msgid "Members"
+msgstr "Miembros"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__materials__metal
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__roof_type__metal
+msgid "Metal/tin"
+msgstr "Metal/lata (zinc)"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.housing_view_form
+msgid "Members of the family"
+msgstr "Miembros de la familia"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__address_municipality
+msgid "Municipality"
+msgstr "Municipio"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.housing_view_form
+msgid "Name"
+msgstr "Nombre"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__address_street_number
+msgid "Number"
+msgstr "Número"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__urladdr
+msgid "OSM Map"
+msgstr "Mapa OSM"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__materials__otros
+msgid "Others"
+msgstr "Otros"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__address_parish
+msgid "Parish"
+msgstr "Parroquia"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__address_country
+#: model:ir.model.fields,help:housing.field_housing_du__address_country
+msgid "Country"
+msgstr "País"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__housing__1
+msgid "Small in good conditions"
+msgstr "Pequeño, con buenas condiciones"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__materials__stone
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__roof_type__stone
+msgid "Stone"
+msgstr "Piedra"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__trash
+msgid "Garbage collection service"
+msgstr "Servicio de recoleccion de desechos"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__address_street
+msgid "Sreet"
+msgstr "Calle"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__address_city
+msgid "State"
+msgstr "Estado"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__total_surface
+msgid "Surface"
+msgstr "Superficie"
+
+#. module: housing
+#: model:ir.model.fields,help:housing.field_housing_du__total_surface
+msgid "Surface in meters"
+msgstr "Superficie en metros"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__roof_type__thatch
+msgid "thatched roof"
+msgstr "Tejado de paja"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.housing_view_form
+msgid "phone"
+msgstr "Teléfono"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__dwelling
+msgid "Type"
+msgstr "Tipo"
+
+#. module: housing
+#: model:ir.model.fields,field_description:housing.field_housing_du__roof_type
+msgid "Roof type"
+msgstr "Tipo de techo"
+
+#. module: housing
+#: model:ir.model.fields.selection,name:housing.selection__housing_du__dwelling__townhouse
+msgid "Townhouse"
+msgstr "Townhouse"
+
+#. module: housing
+#: model:ir.actions.act_window,name:housing.housing_action
+msgid "Housing unit"
+msgstr "Unidad de vivienda"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.view_res_partner_form
+msgid "V-XX.XXX.XXX"
+msgstr "V-XX.XXX.XXX"
+
+#. module: housing
+#: model:ir.ui.menu,name:housing.housing_menu
+msgid "homes"
+msgstr "viviendas"
+
+#. module: housing
+#: model_terms:ir.ui.view,arch_db:housing.view_res_partner_form
+msgid "dd/mm/aaaa"
+msgstr "dd/mm/aaaa"

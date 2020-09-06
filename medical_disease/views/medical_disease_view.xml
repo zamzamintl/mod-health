@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--
+    Copyright 2008 Luis Falcon.
+    Copyright 2020 LabViv.
+    Copyright 2016-2017 LasLabs Inc.
+    License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+    <!-- Diseases -->
+        <menuitem
+            id="medical_root_disease"
+            name="Disease"
+            parent="medical.medical_root_sub"
+            sequence="10"
+            groups="medical.group_medical_user"
+        />
+<!--  Menu of Pathology-->
+        <menuitem
+            id="medical_sub_disease"
+            parent="medical_root_disease"
+            sequence="1"
+            action="medical_patient_disease_action"
+            groups="medical.group_medical_user"
+        />
+</odoo>

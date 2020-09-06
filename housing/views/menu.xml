@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2008 Luis Falcon <lfalcon@gnusolidario.org>
+    Copyright 2020 LabViv.
+    License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+    <menuitem
+        id="main_housing_menu"
+        name="DGDS Viviendas"
+        sequence="10"
+        groups="medical.group_medical_user"
+    />
+    <menuitem
+        id="housing_crud_menu"
+        name="Gestion de Vivienda"
+        parent="main_housing_menu"
+        sequence="10"
+        groups="medical.group_medical_user"
+    />
+    <menuitem
+        id="housing_menu"
+        name="Viviendas"
+        parent="housing_crud_menu"
+        sequence="10"
+        action="housing.housing_action"
+        groups="medical.group_medical_user"
+    />
+</odoo>

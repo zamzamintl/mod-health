@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2020 LabViv.
+    License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+    <record id="fleet_vehicle_type_amb" model="fleet.vehicle.type">
+        <field name="name">Ambulancia</field>
+        <field name="code">AMB</field>
+        <field name="description">Ambulancia tipo 1</field>
+    </record>
+    <record id="fleet_vehicle_type_aut" model="fleet.vehicle.type">
+        <field name="name">Automóvil</field>
+        <field name="code">AUT</field>
+        <field name="description">Automóvil de una institución</field>
+    </record>
+    <record id="fleet_vehicle_type_bic" model="fleet.vehicle.type">
+        <field name="name">Bicicleta</field>
+        <field name="code">BIC</field>
+        <field name="description">Vehículo a tracción de sangre de dos ruedas</field>
+    </record>
+    <record id="fleet_vehicle_type_bus" model="fleet.vehicle.type">
+        <field name="name">Bus</field>
+        <field name="code">BUS</field>
+        <field name="description">Bus de 60 puestos para transporte masivo</field>
+    </record>
+    <record id="fleet_vehicle_type_cam" model="fleet.vehicle.type">
+        <field name="name">Camión</field>
+        <field name="code">CAM</field>
+        <field name="description">Camión de carga con plataforma</field>
+    </record>
+    <record id="fleet_vehicle_type_ca3" model="fleet.vehicle.type">
+        <field name="name">Camión 350</field>
+        <field name="code">CA3</field>
+        <field name="description">Camión de carga hasta 3,5 TON</field>
+    </record>
+    <record id="fleet_vehicle_type_cac" model="fleet.vehicle.type">
+        <field name="name">Camión cisterna</field>
+        <field name="code">CAC</field>
+        <field name="description">Camión cisterna</field>
+    </record>
+    <record id="fleet_vehicle_type_cae" model="fleet.vehicle.type">
+        <field name="name">Camión de estacas</field>
+        <field name="code">CAE</field>
+        <field name="description">Camión de carga con estacas</field>
+    </record>
+    <record id="fleet_vehicle_type_cej" model="fleet.vehicle.type">
+        <field name="name">Camión del ejército</field>
+        <field name="code">CEJ</field>
+        <field name="description">Camión de transporte de tropas</field>
+    </record>
+    <record id="fleet_vehicle_type_cat" model="fleet.vehicle.type">
+        <field name="name">Camión Toronto</field>
+        <field name="code">CAT</field>
+        <field name="description">Camión tipo «Toronto»</field>
+    </record>
+    <record id="fleet_vehicle_type_cva" model="fleet.vehicle.type">
+        <field name="name">Camión vaivén</field>
+        <field name="code">CVA</field>
+        <field name="description">Camión de carga con tolva tipo vaivén</field>
+    </record>
+    <record id="fleet_vehicle_type_cvo" model="fleet.vehicle.type">
+        <field name="name">Camión volteo</field>
+        <field name="code">CVO</field>
+        <field name="description">Camión de carga con tolva tipo volteo</field>
+    </record>
+    <record id="fleet_vehicle_type_com" model="fleet.vehicle.type">
+        <field name="name">Compactador</field>
+        <field name="code">COM</field>
+        <field name="description">Camión compactador de grandes dimensiones</field>
+    </record>
+    <record id="fleet_vehicle_type_gan" model="fleet.vehicle.type">
+        <field name="name">Gandola</field>
+        <field name="code">GAN</field>
+        <field name="description">Vehículo de carga con chuto y remolque</field>
+    </record>
+    <record id="fleet_vehicle_type_gru" model="fleet.vehicle.type">
+        <field name="name">Grúa</field>
+        <field name="code">GRU</field>
+        <field name="description">Vehículo para arrastre de otros vehículos</field>
+    </record>
+    <record id="fleet_vehicle_type_min" model="fleet.vehicle.type">
+        <field name="name">Minimatic</field>
+        <field name="code">MIN</field>
+        <field name="description">Vehículo compactador de pequeñas dimensiones de carga posterior</field>
+    </record>
+    <record id="fleet_vehicle_type_mot" model="fleet.vehicle.type">
+        <field name="name">Motocicleta</field>
+        <field name="code">MOT</field>
+        <field name="description">Vehículo automotor de dos ruedas</field>
+    </record>
+    <record id="fleet_vehicle_type_pat" model="fleet.vehicle.type">
+        <field name="name">Patrulla</field>
+        <field name="code">PAT</field>
+        <field name="description">Vehículo policial o de vigilancia</field>
+    </record>
+    <record id="fleet_vehicle_type_ret" model="fleet.vehicle.type">
+        <field name="name">Retroexcavadora</field>
+        <field name="code">RET</field>
+        <field name="description">Equipo para movimiento de tierras</field>
+    </record>
+    <record id="fleet_vehicle_type_tri" model="fleet.vehicle.type">
+        <field name="name">Trimoto</field>
+        <field name="code">TRI</field>
+        <field name="description">Vehículo automotor de tres ruedas</field>
+    </record>
+    <record id="fleet_vehicle_type_vsi" model="fleet.vehicle.type">
+        <field name="name">Vehículo de supresión de incendios</field>
+        <field name="code">VSI</field>
+        <field name="description">Vehículo cisterna y de bombeo</field>
+    </record>
+    <record id="fleet_vehicle_type_ori" model="fleet.vehicle.type">
+        <field name="name">Vehículo Orinoco</field>
+        <field name="code">ORI</field>
+        <field name="description">Vehículo Orinoco</field>
+    </record>
+</odoo>

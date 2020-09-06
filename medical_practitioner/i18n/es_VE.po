@@ -1,0 +1,1135 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* medical_practitioner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: angel.ramirez.isea@yandex.com\n"
+"POT-Creation-Date: 2020-07-03 11:46+0000\n"
+"PO-Revision-Date: 2020-07-03 11:46+0000\n"
+"Last-Translator: LabViv <angel.ramirez.isea@yandex.com>, 2020\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__property_account_payable_id
+msgid "Account Payable"
+msgstr "Cuentas por Pagar"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__property_account_receivable_id
+msgid "Account Receivable"
+msgstr "Cuentas por Cobrar"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_needaction
+msgid "Action Needed"
+msgstr "Acción Necesaria"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__active
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_role__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__active_lang_count
+msgid "Active Lang Count"
+msgstr "Sólo Cuentas Activas"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de actividad excepcional"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__activity_state
+msgid "Activity State"
+msgstr "Estado de Actividades"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__type
+#: model:ir.model.fields,field_description:medical_practitioner.field_res_partner__type
+#: model:ir.model.fields,field_description:medical_practitioner.field_res_users__type
+msgid "Address Type"
+msgstr "Tipo de dirección"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__alias
+msgid "Alias"
+msgstr "Apodo"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__lang
+msgid ""
+"All the emails and documents sent to this contact will be translated in this"
+" language."
+msgstr "Todos los coreos y documentos enviados a este contactos serán traducidos"
+"en este lenguaje"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_attachment_count
+msgid "Attachment Count"
+msgstr "Agregar Cuenta"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__bank_account_count
+msgid "Bank"
+msgstr "Banco"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__bank_ids
+msgid "Banks"
+msgstr "Bancos"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__is_blacklisted
+msgid "Blacklist"
+msgstr "Lista Negra"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_bounce
+msgid "Bounce"
+msgstr "Rebotar"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__can_publish
+msgid "Can Publish"
+msgstr "Se puede publicar"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__channel_ids
+msgid "Channels"
+msgstr "Canales"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__is_company
+msgid "Check if the contact is a company, otherwise it is a person"
+msgstr "Marque si el contacto es una compañía, si no, es una persona"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__employee
+msgid "Check this box if this contact is an Employee."
+msgstr "Marque si el contacto es un Empleado"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__city
+msgid "City"
+msgstr "Ciudad"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_specialty__code
+msgid "Code"
+msgstr "Código"
+
+#. module: medical_practitioner
+#: model:ir.model.constraint,message:medical_practitioner.constraint_medical_specialty_code_uniq
+msgid "Code must be unique!"
+msgstr "El código debe ser único"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__color
+msgid "Color Index"
+msgstr "Índice de color"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__commercial_partner_id
+msgid "Commercial Entity"
+msgstr "Entidad comercial"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__alias
+msgid "Common name that the Party is referred"
+msgstr "Nombre común de la persona"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__ref_company_ids
+msgid "Companies that refers to partner"
+msgstr "Las empresas que se refieren al socio"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__company_id
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_practitioner_view_search
+msgid "Company"
+msgstr "Compañía"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__commercial_company_name
+msgid "Company Name Entity"
+msgstr "Nombre de la Entidad Compañía"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__company_type
+msgid "Company Type"
+msgstr "Tipo de Compañía"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__contact_address
+msgid "Complete Address"
+msgstr "Completar dirección"
+
+#. module: medical_practitioner
+#: model:ir.model,name:medical_practitioner.model_res_partner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__child_ids
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__count_patients
+msgid "Count Patients"
+msgstr "Contar pacientes"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__payment_token_count
+msgid "Count Payment Token"
+msgstr "Token de Pago de Cuenta"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__message_bounce
+msgid "Counter of the number of bounced emails for this contact"
+msgstr "Contador del número de correos rebotados para este contacto"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__create_uid
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_role__create_uid
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_specialty__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__create_date
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_role__create_date
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_specialty__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__credit_limit
+msgid "Credit Limit"
+msgstr "Límite de Crédito"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__property_payment_term_id
+msgid "Customer Payment Terms"
+msgstr "Condiciones de Pago"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__customer_rank
+msgid "Customer Rank"
+msgstr "Valoración del Cliente"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__birthdate_date
+msgid "DOB"
+msgstr "Fecha de Nacimiento"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__l10n_ve_responsibility_type_id
+msgid ""
+"Defined by SENIAT to identify the type of responsibilities that a person or "
+"a legal entity could have and that impacts in the type of operations and "
+"requirements they need."
+msgstr "Definido por el SENIAT para identificar el tipo de responsabilidades que una persona o"
+"una entidad jurídica podría tener y eso repercute en el tipo de operaciones y"
+"requisitos que necesitan"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__trust
+msgid "Degree of trust you have in this debtor"
+msgstr "Grado de confianza que se tiene en este deudor"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_role__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__display_name
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_role__display_name
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_specialty__display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__partner_share
+msgid ""
+"Either customer (not a user), either shared user. Indicated the current "
+"partner is a customer without access or with a limited access created for "
+"sharing data."
+msgstr ""
+"Cliente (no usuario), o usuario compartido. Indicó que el partner actual es"
+"un cliente sin acceso o con acceso limitado creado para compartir "
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__email
+msgid "Email"
+msgstr "Email"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__practitioner_type
+msgid "Entity Type"
+msgstr "Tipo de Entidad"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__state_id
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__state_id
+msgid "Estado"
+msgstr "Estado"
+
+#. module: medical_practitioner
+#: model:ir.model.fields.selection,name:medical_practitioner.selection__medical_practitioner__practitioner_type__external
+msgid "External Entity"
+msgstr "Entidad Externa"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__phone_sanitized
+msgid ""
+"Field used to store sanitized phone number. Helps speeding up searches and "
+"comparisons."
+msgstr ""
+"Campo utilizado para almacenar el número de teléfono limpio. Ayuda a acelerar las búsquedas y comparaciones."
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__property_account_position_id
+msgid "Fiscal Position"
+msgstr "Posición fiscal"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (canales)"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Socios)"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__email_formatted
+msgid "Format email address \"Name <email@domain>\""
+msgstr "Formato de correo electrónico \"Nombre <correo@dominio>\""
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__email_formatted
+msgid "Formatted Email"
+msgstr "Email formateado"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__gender
+msgid "Gender"
+msgstr "Género"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__partner_latitude
+msgid "Geo Latitude"
+msgstr "Latitud Geográfica"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__partner_longitude
+msgid "Geo Longitude"
+msgstr "Longitud Geográfica"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__has_unreconciled_entries
+msgid "Has Unreconciled Entries"
+msgstr "Entradas no reconciliadas"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__id
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_role__id
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_specialty__id
+msgid "ID"
+msgstr "ID"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__im_status
+msgid "IM Status"
+msgstr "Estatus de mensajería instantánea"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__vat
+msgid "Identification Number"
+msgstr "Números de Identificación"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__vat
+msgid "Identification Number for selected type"
+msgstr "Seleccione tipo de Número de Identificación"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__l10n_latam_identification_type_id
+msgid "Identification Type"
+msgstr "Tipo de Identificación"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__message_needaction
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado, los mensajes nuevos requieren de su atención"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__message_has_error
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está marcado, algunos mensajes tienen error de entrega"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__is_blacklisted
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__phone_blacklisted
+msgid ""
+"If the email address is on the blacklist, the contact won't receive mass "
+"mailing anymore, from any list"
+msgstr ""
+"Si la dirección de correo electrónico está en la lista de exclusión, el "
+"contacto ya no recibirá correos masivos de ninguna lista"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__image_1920
+msgid "Image"
+msgstr "Imágen"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__image_1024
+msgid "Image 1024"
+msgstr "Imágen 1024"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__image_128
+msgid "Image 128"
+msgstr "Imágen 128"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__image_256
+msgid "Image 256"
+msgstr "Imágen 256"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__image_512
+msgid "Image 512"
+msgstr "Imágen 512"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__industry_id
+msgid "Industry"
+msgstr "Industria"
+
+#. module: medical_practitioner
+#: model:ir.model.fields.selection,name:medical_practitioner.selection__medical_practitioner__practitioner_type__internal
+msgid "Internal Entity"
+msgstr "Entidad Interna"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__code
+msgid "Internal ID"
+msgstr "Identificación Interna"
+
+#. module: medical_practitioner
+#: model:ir.model.constraint,message:medical_practitioner.constraint_medical_practitioner_medical_practitioner_unique_code
+msgid "Internal ID must be unique"
+msgstr "La identificación interna debe ser única"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__invoice_warn
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__type
+#: model:ir.model.fields,help:medical_practitioner.field_res_partner__type
+#: model:ir.model.fields,help:medical_practitioner.field_res_users__type
+msgid ""
+"Invoice & Delivery addresses are used in sales orders. Private addresses are"
+" only visible by authorized users."
+msgstr ""
+"Las direcciones de facturación y de entrega son usadas en órdenes de venta. "
+"Las direcciones privadas sólo son visibles por usuarios autorizados."
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__invoice_ids
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_is_follower
+msgid "Is Follower"
+msgstr "es seguidor"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__is_published
+msgid "Is Published"
+msgstr "Esta Publicado"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__is_company
+msgid "Is a Company"
+msgstr "Es una Compañía"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__function
+msgid "Job Position"
+msgstr "Cargo"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__journal_item_count
+msgid "Journal Items"
+msgstr "Artículos del diario"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__lang
+msgid "Language"
+msgstr "Idioma"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner____last_update
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_role____last_update
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_specialty____last_update
+msgid "Last Modified on"
+msgstr "Modificado el"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__write_uid
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_role__write_uid
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_specialty__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__write_date
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_role__write_date
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_specialty__write_date
+msgid "Last Updated on"
+msgstr "Actualizado el"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__last_time_entries_checked
+msgid ""
+"Last time the invoices & payments matching was performed for this partner. "
+"It is set either if there's not at least an unreconciled debit and an "
+"unreconciled credit or if you click the \"Done\" button."
+msgstr ""
+"La última vez que se realizó la conciliacióñ de facturas y pagos para este "
+"aliado. Se establece si no hay al menos un débito no conciliado y un "
+"crédito no conciliado, o si hace clic en el botón \"Listo\"."
+
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__last_time_entries_checked
+msgid "Latest Invoices & Payments Matching Date"
+msgstr "Fechas de últimas facturas o pagos"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjunto Principal"
+
+#. module: medical_practitioner
+#: model:ir.model,name:medical_practitioner.model_medical_practitioner
+#: model:ir.model.fields.selection,name:medical_practitioner.selection__res_partner__type__medical_practitioner
+msgid "Medical Practitioner"
+msgstr "Medicos Practicantes"
+
+#. module: medical_practitioner
+#: model:ir.model,name:medical_practitioner.model_medical_specialty
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_specialty_view_form
+msgid "Medical Specialty"
+msgstr "Especialidad Médica"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de entrega de Mensaje"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__invoice_warn_msg
+msgid "Message for Invoice"
+msgstr "Mensajes de voz"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__mobile
+msgid "Mobile"
+msgstr "Celular"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__municipality_id
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__municipality_id
+msgid "Municipio"
+msgstr "Municipio"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__name
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_role__name
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_specialty__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: medical_practitioner
+#: model:ir.model.constraint,message:medical_practitioner.constraint_medical_specialty_name_uniq
+msgid "Name must be unique!"
+msgstr "El nombre debe ser único"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_specialty__name
+msgid "Name of the specialty"
+msgstr "Nombre de Especialidad"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Fecha límite de la próxima actividad"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de la siguiente actividad"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__activity_type_id
+msgid "Next Activity Type"
+msgstr "Próximo tipo de actividad"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__company_name
+msgid "Nombre de la empresa/institución"
+msgstr "Nombre de la empresa/institución"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__email_normalized
+msgid "Normalized Email"
+msgstr "Correo electrónico normalizado"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__comment
+msgid "Notes"
+msgstr "Notas"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de Acciones"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Números de mensajes que requieren una acción"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Números de mensajes con error de entrega"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes sin leer"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__patient_ids
+msgid "Paciente"
+msgstr "Paciente"
+
+#. module: medical_practitioner
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_practitioner_view_form
+msgid "Parent Company"
+msgstr "Empresa matriz"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__parent_name
+msgid "Parent name"
+msgstr "Nombre del nivel superior"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__parish_id
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__parish_id
+msgid "Parroquia"
+msgstr "Parroquia"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__contract_ids
+msgid "Partner Contracts"
+msgstr "Contratos de socios"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__same_vat_partner_id
+msgid "Partner with same Tax ID"
+msgstr "Socio con el mismo número de identificación fiscal"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__debit_limit
+msgid "Payable Limit"
+msgstr "Límite de pago"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__payment_token_ids
+msgid "Payment Tokens"
+msgstr "Fichas de pago"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__country_id
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__country_id
+msgid "País"
+msgstr "País"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__weight_uom
+msgid "Peso"
+msgstr "Peso"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__phone
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__phone_blacklisted
+msgid "Phone Blacklisted"
+msgstr "El teléfono está en la lista negra"
+
+#. module: medical_practitioner
+#: model:ir.ui.menu,name:medical_practitioner.medical_conf_practitioner_menu
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_practitioner_view_form
+msgid "Practitioner"
+msgstr "Practicante"
+
+#. module: medical_practitioner
+#: model:ir.model,name:medical_practitioner.model_medical_role
+msgid "Practitioner Roles"
+msgstr "Roles de los practicantes"
+
+#. module: medical_practitioner
+#: model:ir.actions.act_window,name:medical_practitioner.medical_practitioner_action
+#: model:ir.ui.menu,name:medical_practitioner.medical_practitioner_menu
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_practitioner_view_kanban
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_practitioner_view_search
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_practitioner_view_tree
+msgid "Practitioners"
+msgstr "Profesionales"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__property_product_pricelist
+msgid "Pricelist"
+msgstr "Lista de Precios"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__ref
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__parent_id
+msgid "Related Company"
+msgstr "Compañia relacionada"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__partner_id
+msgid "Related Partner"
+msgstr "Partner relacionado"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__website_id
+msgid "Restrict publishing to this website."
+msgstr "Restringir la publicación a este sitio web"
+
+#. module: medical_practitioner
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_role_view_form
+msgid "Role"
+msgstr "Rol"
+
+#. module: medical_practitioner
+#: model:ir.actions.act_window,name:medical_practitioner.medical_role_action
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__role_ids
+#: model:ir.ui.menu,name:medical_practitioner.medical_role_menu
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_practitioner_view_form
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_role_view_tree
+msgid "Roles"
+msgstr "Roles"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__l10n_ve_responsibility_type_id
+msgid "SENIAT Responsibility Type"
+msgstr "Tipo de responsabilidad ante el SENIAT"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega de SMS"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__user_id
+msgid "Salesperson"
+msgstr "Vendedor"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__phone_sanitized
+msgid "Sanitized Number"
+msgstr "Número de desinfectados"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__invoice_warn
+msgid ""
+"Selecting the \"Warning\" option will notify user with the message, "
+"Selecting \"Blocking Message\" will throw an exception with the message and "
+"block the flow. The Message has to be written in the next field."
+msgstr ""
+"Seleccionar la opción \"Advertencia\" notifica al usuario con este mensaje, "
+"Seleccioner \"Mensaje de bloqueo\" genera una excepción con el mensaje y "
+"bloquea el flujo. Escriba el mensaje en el campo siguiente."
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__self
+msgid "Self"
+msgstr "Yo"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__partner_share
+msgid "Share Partner"
+msgstr "Compartir Partner"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__signup_expiration
+msgid "Signup Expiration"
+msgstr ""
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__signup_token
+msgid "Signup Token"
+msgstr "Expiración de la inscripción"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__signup_type
+msgid "Signup Token Type"
+msgstr "Tipo de Ficha de inscripción"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__signup_valid
+msgid "Signup Token is Valid"
+msgstr "La ficha de inscripción es válida"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__signup_url
+msgid "Signup URL"
+msgstr "URL de registro"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_specialty__code
+msgid "Speciality code"
+msgstr "Código de especialidad"
+
+#. module: medical_practitioner
+#: model:ir.actions.act_window,name:medical_practitioner.medical_specialty_action
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__specialty_ids
+#: model:ir.ui.menu,name:medical_practitioner.medical_specialty_menu
+msgid "Specialties"
+msgstr "Especialidad"
+
+#. module: medical_practitioner
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_practitioner_view_search
+msgid "State"
+msgstr "Estado"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estatus basado en las actividades\n"
+"Atrasado: Ya pasó la fecha de vencimiento.\n"
+"Hoy: La fecha de la actividad es hoy.\n"
+"Planeado: Actividades futuras."
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__street
+msgid "Street"
+msgstr "Calle"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__street2
+msgid "Street2"
+msgstr "Calle2"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__supplier_rank
+msgid "Supplier Rank"
+msgstr "Rango del proveedor"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__category_id
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__property_account_position_id
+msgid ""
+"The fiscal position determines the taxes/accounts used for this contact."
+msgstr ""
+"La posición fiscal determina los impuestos/cuentas utilizados para este contacto."
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__website_url
+msgid "The full URL to access the document through the website."
+msgstr "El URL completo para acceder al documento a través del sitio web"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__user_id
+msgid "The internal user in charge of this contact."
+msgstr "Usuario interno a cargo de este contacto"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__has_unreconciled_entries
+msgid ""
+"The partner has at least one unreconciled debit and credit since last time "
+"the invoices & payments matching was performed."
+msgstr ""
+"El socio tiene al menos un débito y crédito no conciliado desde la última vez"
+" que se realizó la conciliación de facturas y pagos."
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__l10n_latam_identification_type_id
+msgid "The type of identification"
+msgstr "Tipo de identificación"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__property_account_payable_id
+msgid ""
+"This account will be used instead of the default one as the payable account "
+"for the current partner"
+msgstr ""
+"Esta cuenta se utilizará en lugar de la predeterminada como cuenta de "
+"pago para el socio actual"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__property_account_receivable_id
+msgid ""
+"This account will be used instead of the default one as the receivable "
+"account for the current partner"
+msgstr ""
+"Esta cuenta se utilizará en lugar de la predeterminada como cuenta de cobro "
+"para el socio actual"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__email_normalized
+msgid ""
+"This field is used to search on email address as the primary email field can"
+" contain more than strictly an email address."
+msgstr ""
+"Este campo se utiliza para buscar en la dirección de correo electrónico, ya "
+"que el campo de correo electrónico principal puede contener más que "
+"estrictamente una dirección de correo electrónico."
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__property_supplier_payment_term_id
+msgid ""
+"This payment term will be used instead of the default one for purchase "
+"orders and vendor bills"
+msgstr ""
+"Este tiempo de pago se utilizará en lugar del predeterminado para órdenes de "
+"compra y facturas de proveedores"
+
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__property_payment_term_id
+msgid ""
+"This payment term will be used instead of the default one for sales orders "
+"and customer invoices"
+msgstr ""
+"Este tiempo de pago se usará en lugar del predeterminado para órdenes de "
+"venta y facturas a clientes"
+
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__property_product_pricelist
+msgid ""
+"This pricelist will be used, instead of the default one, for sales to the "
+"current partner"
+msgstr ""
+"Esta lista de precios se utilizará, en lugar de la predeterminada, para las "
+"ventas a esta aliada"
+
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__tz
+msgid "Timezone"
+msgstr "Huso horario"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__tz_offset
+msgid "Timezone offset"
+msgstr "Diferencia de huso horario"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__title
+msgid "Title"
+msgstr "Título"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__total_invoiced
+msgid "Total Invoiced"
+msgstr "Total Facturado"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__debit
+msgid "Total Payable"
+msgstr "Total Pagado"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__credit
+msgid "Total Receivable"
+msgstr "Total Recibido"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__credit
+msgid "Total amount this customer owes you."
+msgstr "La cantidad total que este cliente debe"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__debit
+msgid "Total amount you have to pay to this vendor."
+msgstr "Cantidad total que tiene que pagar a este proveedor"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de la actividad de excepción registrada"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__code
+msgid "Unique ID for this physician"
+msgstr "Identificación única para este médico"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes sin leer"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de mensajes no leídos"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__user_ids
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__currency_id
+msgid "Utility field to express amount currency"
+msgstr "Campo para expresar la cantidad de dinero"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__property_supplier_payment_term_id
+msgid "Vendor Payment Terms"
+msgstr "Condiciones de pago del proveedor"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__website_published
+msgid "Visible on current website"
+msgstr "Visible en el sitio web actual"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__visitor_ids
+msgid "Visitors"
+msgstr "Visitante"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__website_id
+msgid "Website"
+msgstr "Sitio Web"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__website
+msgid "Website Link"
+msgstr "Enlace de página web"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del Sitio Web"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__website_url
+msgid "Website URL"
+msgstr "URL del Sitio Web"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicación del Sitio Web"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__weight
+msgid "Weight"
+msgstr "Peso"
+
+#. module: medical_practitioner
+#: model:ir.model.fields,help:medical_practitioner.field_medical_practitioner__tz
+msgid ""
+"When printing documents and exporting/importing data, time values are computed according to this timezone.\n"
+"If the timezone is not set, UTC (Coordinated Universal Time) is used.\n"
+"Anywhere else, time values are computed according to the time offset of your web client."
+msgstr ""
+"Al imprimir documentos y exportar/importar datos, los valores de fecha se calculan de acuerdo con esta zona horaria.\n"
+"Si la zona horaria no está configurada, se usa UTC (Hora Universal Coordinada).\n"
+"En cualquier otro lugar, los valores de fecha se calculan de acuerdo con el desplazamiento de tiempo de su cliente web."
+
+#. module: medical_practitioner
+#: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__zip
+#: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_practitioner_view_search
+msgid "Zip"
+msgstr "Código Postal"

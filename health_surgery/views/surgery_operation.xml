@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- Copyright 2011-2020 GNU Solidario>
+	 Copyright 2020 LabViv
+	 License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
+ -->
+<odoo>
+
+	<!-- Operation -->
+	<record model="ir.ui.view" id="medical_operation_form">
+		<field name="name">medical.operation.form</field>
+		<field name="model">medical.operation</field>
+		<field name="arch" type="xml">
+			<form>
+				<label name="procedure"/>
+				<field name="procedure"/>
+				<newline/>
+				<separator string="Procedure Details / Incidents" colspan="4" id="separator_surgery_op_details"/>
+				<newline/>
+				<field name="notes" colspan="4"/>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="medical_operation_tree">
+		<field name="name">medical.operation.tree</field>
+		<field name="model">medical.operation</field>
+		<field name="arch" type="xml">
+			<tree editable="top">
+				<field name="procedure" expand="1"/>
+				<field name="notes" expand="1"/>
+			</tree>
+		</field>
+	</record>
+</odoo>

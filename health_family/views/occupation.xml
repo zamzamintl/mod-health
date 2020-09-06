@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+	Copyright 2011-2020 GNU Solidario
+	Copyright 2020 LabViv.
+	License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
+-->
+<odoo>
+	<record model="ir.ui.view" id="medical_occupation_form">
+		<field name="name">medical.occupation.form</field>
+		<field name="model">medical.occupation</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form>
+				<group id="occupation_header">
+					<label name="name"/>
+					<field name="name"/>
+					<label name="code"/>
+					<field name="code"/>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="medical_occupation_tree">
+		<field name="name">medical.occupation.tree</field>
+		<field name="model">medical.occupation</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="code"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="medical_action_occupation">
+		<field name="name">Occupations</field>
+		<field name="res_model">medical.occupation</field>
+	</record>
+
+	<record model="ir.ui.view" id="act_occupation_list_view">
+		<field name="sequence" eval="10"/>
+		<field name="view" ref="medical_occupation_tree"/>
+		<field name="act_window" ref="medical_action_occupation"/>
+	</record>
+	<record model="ir.ui.view" id="act_occupation_form_view">
+		<field name="sequence" eval="20"/>
+		<field name="view" ref="medical_occupation_view"/>
+		<field name="act_window" ref="medical_action_occupation"/>
+	</record>
+
+	<menuitem 
+		id="medical_conf_occupation"
+		name="Family Occupations"
+		sequence="10"
+		parent="family_menu_main"
+		action="medical_action_occupation" 
+	/>
+
+</odoo>

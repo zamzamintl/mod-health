@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="medical_vaccination_view_form" model="ir.ui.view">
+        <field name="name">medical.vaccination.view.form</field>
+        <field name="model">medical.vaccination</field>
+        <field name="arch" type="xml">
+            <form string="Vaccination">
+                <header>
+                    <button name="action_validate" string="Validate" type="object"
+                                confirm="you are sure to validate the vaccination process?"
+                                state="in_progress" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="patient_id" />
+                        <field name="vaccine_id" />
+                    </group>
+                    <notebook>
+                        <page name="caract" string="Description">
+                            <group>
+                                <group>
+                                    <field name="admin_route" />
+                                    <field name="vaccine_expiration_date" />
+                                    <field name="vaccine_lot" />
+                                    <field name="institution_id" />
+                                    <field name="healthprof_id" />
+                                    <field name="signed_by" />
+                                </group>
+                                <group>
+                                    <field name="date" />
+                                    <field name="dose" />
+                                    <field name="next_dose_date" />
+                                    <field name="observations" />
+                                    <field name="amount" />
+                                    <field name="admin_site" />
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="medical_vaccination_view_tree" model="ir.ui.view">
+        <field name="name">medical.vaccination.view.tree</field>
+        <field name="model">medical.vaccination</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="patient_id" />
+                <field name="vaccine_id" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+     <record model="ir.actions.act_window" id="medical_vaccination_action">
+        <field name="name">Vaccination</field>
+        <field name="res_model">medical.vaccination</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="medical_vaccination"
+        name="Vaccination"
+        parent="medical.medical_patient_root"
+        sequence="60"
+        action="medical_vaccination_action"
+        groups="medical.group_medical_user"
+    />
+
+</odoo>
