@@ -679,7 +679,7 @@ msgstr "Paciente"
 #. module: medical_practitioner
 #: model_terms:ir.ui.view,arch_db:medical_practitioner.medical_practitioner_view_form
 msgid "Parent Company"
-msgstr "Empresa matriz"
+msgstr "Centro de salud"
 
 #. module: medical_practitioner
 #: model:ir.model.fields,field_description:medical_practitioner.field_medical_practitioner__parent_name

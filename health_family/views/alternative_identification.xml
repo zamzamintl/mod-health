@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 	Copyright 2011-2020 GNU Solidario
 	Copyright 2020 LabViv.
@@ -11,11 +11,11 @@
 		<field name="type">form</field>
 		<field name="arch" type="xml">
 			<form>
-				<label name="code"/>
+				<label string ="." for="code"/>
 				<field name="code"/>
-				<label name="alternative_id_type"/>
+				<label string ="." for="alternative_id_type"/>
 				<field name="alternative_id_type"/>
-				<label name="comments"/>
+				<label string ="." for="comments"/>
 				<field name="comments"/>
 			</form>
 		</field>

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 	Copyright 2011-2020 GNU Solidario
 	Copyright 2020 LabViv.
@@ -12,9 +12,9 @@
 		<field name="arch" type="xml">
 			<form>
 				<group id="occupation_header">
-					<label name="name"/>
+					<label string ="." for="name"/>
 					<field name="name"/>
-					<label name="code"/>
+					<label string ="." for="code"/>
 					<field name="code"/>
 				</group>
 			</form>

@@ -11,7 +11,7 @@
         'medical',
     ],
     'author': 'LabViv',
-    'website': "https://www.labviv.org.ve",
+    'website': "https://git.labviv.org.ve/",
     'license': 'GPL-3',
     'description': 'Medical_Insurance module ported from OCA/medical-vertical',
     'data': [

@@ -1,5 +1,6 @@
-# Copyright 2011-2020 GNU Solidario <health@gnusolidario.org>
-# Copyright 2020 LabViv
+# Copyright (C) 2008-2019 Luis Falcon <falcon@gnuhealth.org>
+# Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
+# Copyright 2020 LabViv.
 # License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
 
 {
@@ -8,14 +9,15 @@
     'version': '13.0.0.0.1',
     'category': 'Medical',
     'depends': [
-        'medical',
         'medical_extras',
-        'health_lifestyle',
+        'health_lifestyle'
     ],
-    'Author': 'GNU Solidario',
-    'website': "https://www.gnuhealth.org",
+    'Author': 'LabViv',
+    'website': "https://git.labviv.org.ve/",
     'description': """
-        - Hospitalización del paciente, asignación de camas, planes de cuidado y enfermería. .
+        - Hospitalización de paciente.
+        - Asignación de camas.
+        - Planes de cuidado y enfermería.
     """,
     'license': 'GPL-3',
     'data': [

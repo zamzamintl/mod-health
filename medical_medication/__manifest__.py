@@ -6,7 +6,7 @@
     'name': 'Medical Medication',
     'author': 'LabViv',
     'version': '13.0.0.0.1',
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     'license': 'GPL-3',
     'category': 'Medical',
     'depends': [

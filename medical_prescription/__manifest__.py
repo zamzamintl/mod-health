@@ -14,7 +14,7 @@
         'medical_medication',
     ],
     'author': 'LabViv',
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     'license': 'GPL-3',
     'summary': 'This module introduces prescription/prescription line '
     'into the medical addons.',

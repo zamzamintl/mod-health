@@ -635,7 +635,7 @@ msgstr ""
 #. module: medical
 #: model:ir.module.category,name:medical.ir_module_category_medical
 msgid "MBS"
-msgstr ""
+msgstr "MBS"
 
 #. module: medical
 #: model:ir.model.fields,field_description:medical.field_medical_abstract_entity__message_main_attachment_id

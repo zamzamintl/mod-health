@@ -14,7 +14,7 @@
         'base_locale_uom_default',
     ],
     'author': 'LabViv',
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     'license': 'GPL-3',
     'data': [
         'security/medical_security.xml',

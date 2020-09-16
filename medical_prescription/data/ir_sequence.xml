@@ -4,7 +4,6 @@
     Copyright 2020 LabViv.
     License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
 -->
-
 <odoo>
     <record id="seq_medical_prescription_order" model="ir.sequence">
         <field name="name">Medical Prescription Order</field>

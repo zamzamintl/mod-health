@@ -1,9 +1,12 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2020 LabViv.
+   License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).-->
+
 <odoo>
     <data>
         <record id="gnuhealth_ophthalmology_findings_view_tree" model="ir.ui.view">
             <field name="name">Ohthalmology</field>
-            <field name="model">gnuhealth.ophthalmology.findings</field>
+            <field name="model">ophthalmology.findings</field>
             <field name="arch" type="xml">
                 <tree string="">
                     <field name="eye_structure"/>

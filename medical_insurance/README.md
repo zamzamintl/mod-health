@@ -82,4 +82,4 @@ Maintainer
 This module is maintained by Asociaciones Cooperativas de Procesamiento Unificado
 Informático, R.L.; Simón Rodríguez para el Conocimiento Libre, R.S.; y Soluciones
 Informáticas para el Desarrollo de Inclusión Social, R.S. To contribute to this
-module, please visit https://www.labviv.org.ve.
+module, please visit https://git.labviv.org.ve/.

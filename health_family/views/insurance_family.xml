@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 	Copyright 2011-2020 GNU Solidario
 	Copyright 2020 LabViv.
@@ -14,26 +14,26 @@
 		<field name="arch" type="xml">
 			<form>
 				<group col="6" colspan="4" id="insurance_header">
-					<label name="number"/>
+					<label string ="." for="number"/>
 					<field name="number"/>
-					<label name="name"/>
+					<label string ="." for="name"/>
 					<field name="name"/>
-					<label name="insurance_type"/>
+					<label string ="." for="insurance_type"/>
 					<field name="insurance_type" widget="selection"/>
 				</group>
 				<newline/>
 				<group col="6" colspan="4" id="insurance_plan">
-					<label name="company"/>
+					<label string ="." for="company"/>
 					<field name="company"/>
-					<label name="plan_id"/>
+					<label string ="." for="plan_id"/>
 					<field name="plan_id"/>
-					<label name="category"/>
+					<label string ="." for="category"/>
 					<field name="category"/>
 				</group>
 				<newline/>
-				<label name="member_since"/>
+				<label string ="." for="member_since"/>
 				<field name="member_since"/>
-				<label name="member_exp"/>
+				<label string ="." for="member_exp"/>
 				<field name="member_exp"/>
 				<newline/>
 				<field name="notes" colspan="4"/>

@@ -14,7 +14,7 @@
         'medical_insurance'
     ],
     'author': 'LabViv',
-    'website': "https://www.labviv.org.ve",
+    'website': "https://git.labviv.org.ve/",
     'description': 'Información detallada de la Familia y sus miembros',
     'license': 'GPL-3',
     'data': [

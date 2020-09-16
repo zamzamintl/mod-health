@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 Copyright 2011-2020 GNU Solidario
 Copyright 2020 LabViv.
@@ -12,34 +12,34 @@ License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
 		<field name="arch" type="xml">
 			<form>
 				<group colspan="4" col="6" string="Main" id="group_death_cert_header">
-					<label name="name"/>
+					<label string ="." for="name"/>
 					<field name="name"/>
-					<label name="dod"/>
+					<label string ="." for="dod"/>
 					<field name="dod"/>
-					<label name="age"/>
+					<label string ="." for="age"/>
 					<field name="age"/>
 				</group>
 				<newline/>
 				<group colspan="4" string="Place" id="group_death_place">
-					<label name="place_of_death"/>
+					<label string ="." for="place_of_death"/>
 					<field name="place_of_death"/>
-					<label name="place_details"/>
+					<label string ="." for="place_details"/>
 					<field name="place_details"/>
 					<newline/>
-					<label name="du"/>
+					<label string ="." for="du"/>
 					<field name="du"/>
-					<label name="operational_sector"/>
+					<label string ="." for="operational_sector"/>
 					<field name="operational_sector"/>
-					<label name="institution"/>
+					<label string ="." for="institution"/>
 					<field name="institution"/>
 					<newline/>
-					<label name="address_country"/>
+					<label string ="." for="address_country"/>
 					<field name="address_country"/>
-					<label name="address_city"/>
+					<label string ="." for="address_city"/>
 					<field name="address_city"/>
-					<label name="address_municipaly"/>
+					<label string ="." for="address_municipaly"/>
 					<field name="address_municipaly"/>
-					<label name="address_zip"/>
+					<label string ="." for="address_zip"/>
 					<field name="address_zip"/>
 				</group>
 				<newline/>
@@ -48,13 +48,13 @@ License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
 				</group>
 				<newline/>
 					<field height="150" name="underlying_conditions"/>
-				<newline/>   
+				<newline/>
 				<group id="group_death_misc" string="Other" colspan="4" col="8">
-					<label name="type_of_death"/>
+					<label string ="." for="type_of_death"/>
 					<field name="type_of_death"/>
-					<label name="autopsy"/>
+					<label string ="." for="autopsy"/>
 					<field name="autopsy"/>
-					<label name="code"/>
+					<label string ="." for="code"/>
 					<field name="code"/>
 				</group>
 				<newline/>
@@ -63,11 +63,11 @@ License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
 				<field name="observations" colspan="4"/>
 				<newline/>
 				<group id="death_certificate_footer" colspan="4" col="8">
-					<label name="state"/>
+					<label string ="." for="state"/>
 					<field name="state"/>
-					<label name="signed_by"/>
+					<label string ="." for="signed_by"/>
 					<field name="signed_by"/>
-					<label name="certification_date"/>
+					<label string ="." for="certification_date"/>
 					<field name="certification_date"/>
 					<button name="sign" help="Sign the certificate" string="Sign" icon="tryton-go-next" confirm="Sign Death Certificate ?"/>
 				</group>
@@ -99,7 +99,7 @@ License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
 		<field name="view_mode">form</field>
 	</record>
 
-	<menuitem 
+	<menuitem
 		id="menu_death_cert"
 		name="Death Certificate"
 		action="act_death_cert_form"

@@ -8,7 +8,7 @@
     'version': '13.0.0.0.1',
     'category': 'Extra Tools',
     'author': 'LasLabs Inc.',
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     'license': 'LGPL-3',
     'application': False,
     'installable': True,

@@ -214,7 +214,7 @@ class BirthCertExtraInfo (models.Model):
     )
     signed_by = fields.Many2one(
         string='Certifier',
-        comodel_name='medical.healthprofessional',
+        comodel_name='medical.practitioner',
         help='Person who certifies this birth document',
         readonly=True,
     )
@@ -242,7 +242,7 @@ class BirthCertExtraInfo (models.Model):
         self.country_subdivision = subdivision
 
     def sign(self, certificates):
-        HealthProfessional = self.env['medical.healthprofessional']
+        HealthProfessional = self.env['medical.practitioner']
         Person = self.env['res.partner']
         partner = []
 
@@ -273,7 +273,7 @@ class DeathCertExtraInfo (models.Model):
         'Institution',
     )
     signed_by = fields.Many2one(
-        'medical.healthprofessional', 'Signed by', readonly=True,
+        'medical.practitioner', 'Signed by', readonly=True,
         help="Health Professional that signed the death certificate"
     )
     certification_date = fields.Datetime('Certified on', readonly=True)
@@ -312,7 +312,7 @@ class DeathCertExtraInfo (models.Model):
         self.country_subdivision = subdivision
 
     def sign(self, certificates):
-        HealthProfessional = self.env['medical.healthprofessional']
+        HealthProfessional = self.env['medical.practitioner']
         Person = self.env['res.partner']
 
         # Change the state of the death certificate to "Signed"

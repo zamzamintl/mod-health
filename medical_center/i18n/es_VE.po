@@ -1043,7 +1043,7 @@ msgstr "Paciente"
 #. module: medical_center
 #: model_terms:ir.ui.view,arch_db:medical_center.medical_center_view_form
 msgid "Parent Company"
-msgstr "Compañia paternal"
+msgstr "Centro matriz"
 
 #. module: medical_center
 #: model:ir.model.fields,field_description:medical_center.field_medical_center__parent_name

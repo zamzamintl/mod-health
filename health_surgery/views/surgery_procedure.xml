@@ -1,32 +1,30 @@
-<?xml version="1.0"?>
-<!-- Copyright 2011-2020 GNU Solidario>
-	 Copyright 2020 LabViv
-	 License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
- -->
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2011-2020 GNU Solidario>
+    Copyright 2020 LabViv
+    License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
+-->
 <odoo>
-
-<!-- Procedure -->
-	<record model="ir.ui.view" id="medical_procedure_form">
-		<field name="name">medical.procedure.form</field>
-		<field name="model">medical.procedure</field>
-		<field name="arch" type="xml">
-			<form>
-				<label name="name"/>
-				<field name="name"/>
-				<label name="description"/>
-				<field name="description"/>
-			</form>
-		</field>
-	</record>
-
-	<record model="ir.ui.view" id="medical_procedure_tree">
-		<field name="name">medical.procedure.tree</field>
-		<field name="model">medical.procedure</field>
-		<field name="arch" type="xml">
-			<tree editable="top">
-				<field name="name"/>
-				<field name="description" expand="1"/>
-			</tree>
-		</field>
-	</record>
-
+    <record model="ir.ui.view" id="medical_procedure_form">
+        <field name="name">medical.procedure.form</field>
+        <field name="model">medical.procedure</field>
+        <field name="arch" type="xml">
+            <form>
+                <label string ="." for="name"/>
+                <field name="name"/>
+                <label string ="." for="description"/>
+                <field name="description"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="medical_procedure_tree">
+        <field name="name">medical.procedure.tree</field>
+        <field name="model">medical.procedure</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

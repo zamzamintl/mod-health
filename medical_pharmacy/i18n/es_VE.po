@@ -638,7 +638,7 @@ msgstr "Paciente"
 #. module: medical_pharmacy
 #: model_terms:ir.ui.view,arch_db:medical_pharmacy.view_medical_pharmacy_form
 msgid "Parent Company"
-msgstr "Empresa matriz"
+msgstr "Centro de salud"
 
 #. module: medical_pharmacy
 #: model:ir.model.fields,field_description:medical_pharmacy.field_medical_pharmacy__parent_name

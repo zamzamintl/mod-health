@@ -9,14 +9,11 @@
     'summary': 'Extends Odoo Medical with pathologies (diseases).',
     'author': 'LabViv',
     'version': '13.0.0.0.1',
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     'license': 'GPL-3',
     'application': False,
     'installable': True,
-    'depends': [
-        'medical',
-        'medical_disease',
-    ],
+    'depends': ['medical_disease'],
     'data': [
         'views/medical_pathology_category_view.xml',
         'views/medical_pathology_view.xml',

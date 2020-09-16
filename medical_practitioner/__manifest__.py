@@ -11,7 +11,7 @@
     'author': 'LabViv',
     'description':
         'Medical_Practitioner module ported from OCA/medical-vertical',
-    'website': "https://www.labviv.org.ve",
+    'website': "https://git.labviv.org.ve/",
     'license': 'GPL-3',
     'category': 'Medical',
     'depends': ['medical'],

@@ -10,7 +10,7 @@
     'category': 'Medical',
     'depends': ['medical'],
     'author': 'LabViv',
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     'license': 'GPL-3',
     'data': [
         'security/ir.model.access.csv',

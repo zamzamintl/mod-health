@@ -164,13 +164,11 @@ class HealthInstitutionSpecialties(models.Model):
         required=True
     )
 
-    _sql_constraints = [
-        (
-            'name_sp_uniq',
-            'unique(name, specialty)',
-            'This specialty exists for this institution'
-        )
-    ]
+    _sql_constraints = [(
+        'name_sp_uniq',
+        'unique(name, specialty)',
+        'This specialty exists for this institution'
+    )]
 
     def get_rec_name(self, name):
         if self.specialty:

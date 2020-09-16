@@ -1,10 +1,13 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2020 LabViv.
+   License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).-->
+
 <odoo>
     <data>
 
         <record id="gnuhealth_ophthalmology_findings" model="ir.ui.view">
             <field name="name">Findings</field>
-            <field name="model">gnuhealth.ophthalmology.findings</field>
+            <field name="model">ophthalmology.findings</field>
             <field name="arch" type="xml">
                 <form string="">
                     <sheet>

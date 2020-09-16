@@ -9,7 +9,7 @@
     'summary': 'Supports the import of ICD-10-CM pathology data',
     'author': 'LabViv',
     'version': '13.0.0.0.1',
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     'category': 'Medical',
     'license': 'GPL-3',
     'depends': ['medical_pathology_import'],

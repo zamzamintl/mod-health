@@ -21,11 +21,11 @@ class ResPartner(models.Model):
     patient_ids = fields.One2many(
         string='Paciente',
         comodel_name='medical.patient',
-        compute='_compute_patient_ids_and_count',
+        # compute='_compute_patient_ids_and_count',
         inverse_name='partner_id'
     )
     count_patients = fields.Integer(
-        compute='_compute_patient_ids_and_count',
+        # compute='_compute_patient_ids_and_count',
     )
     birthdate_date = fields.Date(
         string='DOB',
@@ -54,13 +54,19 @@ class ResPartner(models.Model):
                 ('partner_id', '=', self.id),
             ])
 
-    def _compute_patient_ids_and_count(self):
-        for record in self:
-            patients = self.env['medical.patient'].search([
-                ('partner_id', 'child_of', record.id),
-            ])
-            record.count_patients = len(patients)
-            record.patient_ids = [(6, 0, patients.ids)]
+    # def _compute_patient_ids_and_count(self):
+    #     for record in self:
+    #         try:
+    #             print(record.id[1])
+    #             patients = self.env['medical.patient'].search([
+    #                 ('partner_id', 'child_of', record.id),
+    #             ])[0]
+    #             print(63, patients)
+    #             record.count_patients = len(patients)
+    #             record.patient_ids = [(6, 0, patients.ids)]
+    #         except Exception as e:
+    #             print(67, e)
+    #             pass
 
     @api.constrains('birthdate_date')
     def _check_birthdate_date(self):

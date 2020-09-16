@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 	Copyright 2011-2020 GNU Solidario
 	Copyright 2020 LabViv.
@@ -12,16 +12,16 @@
 		<field name="arch" type="xml">
 			<xpath expr="/form/label[@name=&quot;party&quot;]" position="before">
 				<newline/>
-				<label name="relative_id"/>
+				<label string ="." for="relative_id"/>
 				<field name="relative_id"/>
-				<label name="relationship"/>
+				<label string ="." for="relationship"/>
 				<field name="relationship"/>
 				<newline/>
 			</xpath>
 			<xpath expr="/form/group/field[@name=&quot;active&quot;]" position="after">
-				<label name="is_work"/>
+				<label string ="." for="is_work"/>
 				<field name="is_work"/>
-				<label name="is_school"/>
+				<label string ="." for="is_school"/>
 				<field name="is_school"/>
 			</xpath>
 			<xpath expr="/form/field[@name=&quot;country&quot;]" position="replace_attributes">

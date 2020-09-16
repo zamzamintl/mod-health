@@ -45,4 +45,4 @@ This module is maintained by Asociaciones Cooperativas  de Procesamiento
 Unificado Informático, R.S.; Simón Rodríguez para el Conocimiento Libre, R.S.;
 y Soluciones Informáticas para el Desarrollo de Inclusión Social, R.S.
 
-To contribute to this module, please visit https://labviv.org.ve.
+To contribute to this module, please visit https://git.labviv.org.ve.

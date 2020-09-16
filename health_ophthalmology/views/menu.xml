@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2020 LabViv.
+   License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).-->
+
 <odoo>
 	<data>
 		<record id="ophthalmology_evaluation_action" model="ir.actions.act_window">
 			<field name="name">Ophthalmology</field>
-			<field name="res_model">gnuhealth.ophthalmology.evaluation</field>
+			<field name="res_model">ophthalmology.evaluation</field>
 			<field name="view_mode">tree,form</field>
 			<field name="help" type="html">
 				<p class="oe_view_nocontent_create">

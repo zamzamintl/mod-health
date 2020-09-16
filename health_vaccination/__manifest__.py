@@ -13,7 +13,7 @@
         'medical_medicament',
     ],
     'Author': 'LabViv',
-    'website': "https://www.labviv.org.ve",
+    'website': "https://git.labviv.org.ve/",
     'description': "Vaccination records",
     'license': 'GPL-3',
     'data': [

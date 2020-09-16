@@ -7,11 +7,9 @@
     'summary': 'Registros de estilo de vida.',
     'version': '13.0.0.0.1',
     'category': 'Medical',
-    'depends': [
-        'medical',
-    ],
+    'depends': ['medical'],
     'Author': 'LabViv',
-    'website': "https://www.labviv.org.ve",
+    'website': "https://git.labviv.org.ve/",
     'description': """
         - Evaluación del Estilo de Vida de las personas.
         - Recopila información sobre hábitos y la sexualidad del paciente.

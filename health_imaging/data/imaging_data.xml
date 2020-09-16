@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--from odoo import models, fields, api
+from datetime import date, datetime -->
 <odoo>
     <data noupdate="1">
-        <record id="gnuhealth_test_type_ultrasound" model="gnuhealth.imaging.test.type">
+        <record id="gnuhealth_test_type_ultrasound" model="imaging.test.type">
             <field name="code">US</field>
             <field name="name">Ultrasound</field>
         </record>
-        <record id="gnuhealth_test_type_mri" model="gnuhealth.imaging.test.type">
+        <record id="gnuhealth_test_type_mri" model="imaging.test.type">
             <field name="code">MRI</field>
             <field name="name">MRI</field>
         </record>
-        <record id="gnuhealth_test_type_xray" model="gnuhealth.imaging.test.type">
+        <record id="gnuhealth_test_type_xray" model="imaging.test.type">
             <field name="code">XR</field>
             <field name="name">X-ray</field>
         </record>
-        <record id="gnuhealth_test_type_ctscan" model="gnuhealth.imaging.test.type">
+        <record id="gnuhealth_test_type_ctscan" model="imaging.test.type">
             <field name="code">CT</field>
             <field name="name">CT Scan</field>
         </record>
-        <record id="gnuhealth_test_type_petscan" model="gnuhealth.imaging.test.type">
+        <record id="gnuhealth_test_type_petscan" model="imaging.test.type">
             <field name="code">PET</field>
             <field name="name">PET Scan</field>
         </record>

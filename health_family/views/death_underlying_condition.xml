@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 Copyright 2011-2020 GNU Solidario
 Copyright 2020 LabViv.
@@ -11,11 +11,11 @@ License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
 		<field name="type">form</field>
 		<field name="arch" type="xml">
 			<form>
-				<label name="condition"/>
+				<label string ="." for="condition"/>
 				<field name="condition"/>
-				<label name="interval"/>
+				<label string ="." for="interval"/>
 				<field name="interval"/>
-				<label name="unit_of_time"/>
+				<label string ="." for="unit_of_time"/>
 				<field name="unit_of_time"/>
 			</form>
 		</field>

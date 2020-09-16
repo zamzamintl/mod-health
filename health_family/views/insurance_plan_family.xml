@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 	Copyright 2011-2020 GNU Solidario
 	Copyright 2020 LabViv.
@@ -12,12 +12,12 @@
 		<field name="type">form</field>
 		<field name="arch" type="xml">
 			<form>
-				<label name="name"/>
+				<label string ="." for="name"/>
 				<field name="name"/>
 				<newline/>
-				<label name="company"/>
+				<label string ="." for="company"/>
 				<field name="company"/>
-				<label name="is_default"/>
+				<label string ="." for="is_default"/>
 				<field name="is_default"/>
 				<newline/>
 				<field name="notes" colspan="4"/>

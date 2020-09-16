@@ -8,7 +8,7 @@
     'category': 'SisteMASo',
     'depends': ['fleet'],
     'author': 'LabViv',
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     'license': 'GPL-3',
     'data': [
         'data/fleet_vehicle_type_data.xml',

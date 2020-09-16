@@ -9,7 +9,7 @@
     'category': 'Medical',
     'depends': ['medical_prescription'],
     'author': 'LabViv',
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     'license': 'GPL-3',
     'data': [
         'views/medical_prescription_order_view.xml',

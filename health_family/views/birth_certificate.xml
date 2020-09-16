@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 Copyright 2011-2020 GNU Solidario
 Copyright 2020 LabViv.
@@ -12,24 +12,24 @@ License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
 		<field name="arch" type="xml">
 			<form>
 				<group colspan="4" string="Main" id="group_birth_cert_header">
-					<label name="name"/>
+					<label string ="." for="name"/>
 					<field name="name"/>
-					<label name="dob"/>
+					<label string ="." for="dob"/>
 					<field name="dob"/>
 					<newline/>
-					<label name="mother"/>
+					<label string ="." for="mother"/>
 					<field name="mother"/>
-					<label name="father"/>
+					<label string ="." for="father"/>
 					<field name="father"/>
 					<newline/>
-					<label name="institution"/>
+					<label string ="." for="institution"/>
 					<field name="institution"/>
-					<label name="code"/>
+					<label string ="." for="code"/>
 					<field name="code"/>
 					<newline/>
-					<label name="country"/>
+					<label string ="." for="country"/>
 					<field name="country"/>
-					<label name="country_subdivision"/>
+					<label string ="." for="country_subdivision"/>
 					<field name="country_subdivision"/>
 				</group>
 				<newline/>
@@ -37,11 +37,11 @@ License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
 				<newline/>
 				<field name="observations" colspan="4"/>
 				<group id="birth_certificate_footer" colspan="4" col="8">
-					<label name="state"/>
+					<label string ="." for="state"/>
 					<field name="state"/>
-					<label name="signed_by"/>
+					<label string ="." for="signed_by"/>
 					<field name="signed_by"/>
-					<label name="certification_date"/>
+					<label string ="." for="certification_date"/>
 					<field name="certification_date"/>
 					<button name="sign" help="Sign the certificate" string="Sign" confirm="Sign Birth Certificate ?"/>
 				</group>
@@ -83,7 +83,7 @@ License GPL-3.0 or later (http://www.gnu.org/licenses/gpl).
 		<field name="action" ref="act_birth_cert_form1"/>
 	</record>
 
-	<menuitem 
+	<menuitem
 		id="menu_birth_cert"
 		name='Birth Certificate'
 		parent="family_menu_main"

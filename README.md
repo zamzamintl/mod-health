@@ -1,65 +1,95 @@
-Odoo Medical
-============
+Sistema Municipal de Atención Social de la Dirección General de Desarrollo Social de la Alcaldía Bolivariana de Maracaibo. Estado Zulia, Venezuela.
 
-This module is an update for Odoo 13 of the modules in
-* https://github.com/OCA/partner-contact
+SisteMASo
+=========
 
-Check the ``__manifest__.py`` for the specific dependencies.
+# Pre-requisitos:
+- Devuan 2.
+- Python 3.
+- Odoo 13.
+- Mejoras visuales:
+    git clone https://github.com/OCA/web --depth 1
+    git clone https://github.com/odoo-mastercore/odoo_ux
+- Localización para Venezuela:
+    git clone https://github.com/odoo-mastercore/odoo-venezuela
+- Códigos de área:
+    git clone https://github.com/rhe-mastercore/vzla_code/
+- source odoo-13/venv/bin/activate venv
+- Para generar los brazaletes con QR:
+        sudo apt-get install libfreetype6-dev
+- sudo pip3.8 install phonenumbers pyqrcodeng pypng
+<!-- - Para traer los datos del CNE:
+        sudo apt-get install python3-beautifulsoup python3-bs4 m2crypto
+- Para generar los documentos en PDF:
+        sudo aptitude purge wkhtmltopdf
+        wget -c https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+        tar -ixvf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+        sudo cp wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf
+        sudo cp wkhtmltox/bin/wkhtmltoimage /usr/local/bin/wkhtmltoimage
+        rm wkhtmltox* -r -->
 
-Usage
-=====
+# Instalación:
+- En .odoorc_sistemaso:
+    addons_path = /home/angel/code/odoo-13.0/odoo/addons,/home/angel/code/odoo-13.0/addons,/home/angel/code/SisteMASo,/home/angel/code/web,,/home/angel/code/odoo_ux,/home/angel/code/odoo-venezuela,/home/angel/code/vzla_code
+- Entrar en modo debug (?debug=1#).
+- Actualizar lista de módulos.
+- Instalar módulo website.
+- Instalar módulo web_responsive.
+- Instalar módulo backend_theme.
+- Instalar módulo l10n_ve_base.
+- Instalar todos los demás módulos:
 
-Patients
---------
+-i aguila_base,base_locale_uom_default,case_general,cdi_data,comm_media,\
+event_history,fleet_vehicle_type,health_lifestyle,housing,medical,\
+medical_center,medical_disease,medical_insurance,medical_medicament,\
+medical_medicament_attributes,medical_medication,medical_pathology,\
+medical_pathology_icd10,medical_pathology_import,medical_pharmacy,\
+medical_pharmacy_us,medical_practitioner,medical_prescription,\
+medical_prescription_state,medical_prescription_thread,medical_procedure,\
+parish_structure,pasi_data,sistemaso_base,social,territorial_pd,\
+territorial_pd_ext_mbo,vzla_legal
 
-Patients are available in the ``Medical`` App, in the ``Patients`` submenu.
-
-Medical Abstract Entity
------------------------
-
-The Medical Abstract Entity (``medical.abstract.entity``) is an AbstractModel
-that provides for a central base that all medical entities should inherit from.
-
-A Medical Entity is any partner that also requires a medical context. Examples:
-
-* MedicalCenter
-* MedicalPatient
-* MedicalPhysician
-* MedicalPharmacy
-
-Some base views are also provided in order to make it easy to create new medical
-entities & maintain uniformity between them:
-
-* Kanban - ``medical_asbsract_entity_view_kanban``
-* Tree - ``medical_asbsract_entity_view_tree``
-* Form - ``medical_asbsract_entity_view_form``
-* Search - ``medical_asbsract_entity_view_search``
-
-When inheriting these views, you must define the inheritance mode as ``primary``,
-such as in the following example:
-
-    <record id="medical_patient_view_tree" model="ir.ui.view">
-        <field name="name">medical.patient.tree</field>
-        <field name="model">medical.patient</field>
-        <field name="inherit_id" ref="medical_abstract_entity_view_tree" />
-        <field name="mode">primary</field>
-        <field name="arch" type="xml">
-            <xpath expr="//tree" position="attributes">
-                <attribute name="string">Patients</attribute>
-            </xpath>
-            <xpath expr="//field[@name='email']" position="after">
-                <field name="identification_code" />
-                <field name="age" />
-                <field name="gender" />
-            </xpath>
-        </field>
-    </record>
-
-Take a look at ``medical/views/medical_patient.xml``, or any of the other medical
-entity views for more examples.
+# Post-instalación:
+- Settings -> General Settings:
+    - Business Documents -> Format:
+        - Cambiar formato de papel a carta.
+    - Contacts:
+        - Desactivar partner Autocomplete.
+    - Users:
+        - Activar Password Reset (restauración de contraseña).
+        - Luego de migrar la data: Desactivar Importar/Exportar
+    - Integrations:
+        - Desactivar Unsplash Image Library. Guardar.
+- Settings -> Website:
+    - Website Title
+        - Cambiar nombre y Favicon.
+    - Website Logo:
+        - Establecer logo de la Alcaldía.
+    - Customer Account:
+        - Por invitación.
+    - Features:
+        - Desactivar múltiples websites. Guardar.
+    - Languages:
+        - Instalar Español VE.
+        - Seleccionar Español VE.
+        - Establecer Español VE como predeterminado.
+        - Eliminar Inglés. Guardar.
+- Administrador -> Preferences:
+    - Language: Seleccionar Español VE.
+    - Timezone: America/Caracas. Guardar.
+- Settings -> General Settings -> Languages -> Manage Languages:
+    - Activar: Spanish VE.
+    - Establecer Lunes como primer día de la semana. Guardar.
+    - Archivar inglés.
+- Ajustes -> Traducciones -> Términos Traducidos:
+    - Cambiar Valor de Traducción: «¡No se encontrarón archivos!» por «No hay registros. Cree uno.».
 
 Credits
 =======
+
+This system is based on GNU Health (gnuhealth.org), and on modules in
+* http://hg.savannah.gnu.org/hgweb/health/
+* https://github.com/OCA/partner-contact
 
 This version
 ------------
@@ -70,7 +100,7 @@ GNU Health creator
 * Dr. Luis Falcón, MD <falcon@gnuhealth.org>
 
 ``medical`` Original Contributors
----------------------------------
+---------------------
 * Dave Lasley <dave@laslabs.com>
 * Jonathan Nemry <jonathan.nemry@acsone.eu>
 * Brett Wood <bwood@laslabs.com>
@@ -107,6 +137,8 @@ Maintainer
 ----------
 
 This module is maintained by Asociaciones Cooperativas  de
-Procesamiento Unificado Informático, R.S.; Simón Rodríguez para
-el Conocimiento Libre, R.S.; y Soluciones Informáticas para el
+Procesamiento Unificado Informático, R.S.; Simón Rodríguez para el
+Conocimiento Libre, R.S.; y Soluciones Informáticas para el
 Desarrollo de Inclusión Social, R.S.
+
+To contribute to this module, please visit https://git.labviv.org.ve.

@@ -309,72 +309,72 @@ class ResPartner(models.Model):
                 values['family'] = family_name
             Pname.write(official_rec, values)
 
-    @api.model
-    def create(self, vals):
-        # Configuration = self.env['partner.configuration']
-        vals = [x.copy() for x in vals]
-        tmp_act = self.generate_puid()
-        for values in vals:
-            if not values.get('ref'):
-                if values.get('federation_account'):
-                    # Strip the country code from the fed account
-                    # and pass it to the local PUID
-                    values['ref'] = values.get('federation_account')[3:]
-                else:
-                    values['ref'] = tmp_act
-                if 'unidentified' in values and values['unidentified']:
-                    values['ref'] = 'NN-' + values.get('ref')
-                if 'is_person' in values and not values['is_person']:
-                    values['ref'] = 'NP-' + values['ref']
-            # Generate the Federation account ID
-            # with the ISO 3166-1 alpha-3 as prefix
-            # using the same code as in the newly created PUID
-            # If the person is NN or there is no country assigned
-            # use the prefix XXX
-            if not values.get('federation_account') and\
-               values.get('is_person'):
-                federation_account = tmp_act
-                values['federation_account'] = \
-                    values['fed_country'] + federation_account
-            # Set the value to None to make the fields that have a
-            # unique constraint get the NULL value at PostgreSQL level, and not
-            # the value '' coming from the client
-            if values.get('federation_account') == '':
-                values['federation_account'] = None
-            # Generate internal code
-            # if not values.get('code'):
-            #     config = Configuration(1)
-                # Use the company name . Initially, use the name
-                # since the company hasn't been created yet.
-                # suffix = Transaction().context.get('company.rec_name') \
-                #     or values['name']
-                # Generate the partner code in the form of
-                # "UUID-" . Where company is the name of the Health
-                # Institution.
-                #
-                # The field "code" is the one that is used in distributed
-                # environments, with multiple GNU Health instances across
-                # a country / region
-                # values['code'] = '%s-%s' % (uuid4(), suffix)
-            values.setdefault('addresses', None)
-            # If the partner is a physical person,
-            # add new PersonName record with the given and family name
-            # as the official name
-            if (values.get('is_person')):
-                if ('name' in values) or ('lastname' in values):
-                    official_name = []
-                    given_name = family_name = ''
-                    if 'name' in values:
-                        given_name = values['name']
-                    if 'lastname' in values:
-                        family_name = values['lastname']
-                    official_name.append(('create', [{
-                        'use': 'official',
-                        'given': given_name,
-                        'family': family_name,
-                    }]))
-                    values['person_names'] = official_name
-        return super(ResPartner, self).create(vals)
+    # # @api.model
+    # def create(self, vals):
+    # #     # Configuration = self.env['partner.configuration']
+    # #     vals = [x.copy() for x in vals]
+    # #     tmp_act = self.generate_puid()
+    # #     for values in vals:
+    # #         if not values.get('ref'):
+    # #             if values.get('federation_account'):
+    # #                 # Strip the country code from the fed account
+    # #                 # and pass it to the local PUID
+    # #                 values['ref'] = values.get('federation_account')[3:]
+    # #             else:
+    # #                 values['ref'] = tmp_act
+    # #             if 'unidentified' in values and values['unidentified']:
+    # #                 values['ref'] = 'NN-' + values.get('ref')
+    # #             if 'is_person' in values and not values['is_person']:
+    # #                 values['ref'] = 'NP-' + values['ref']
+    #         # Generate the Federation account ID
+    #         # with the ISO 3166-1 alpha-3 as prefix
+    #         # using the same code as in the newly created PUID
+    #         # If the person is NN or there is no country assigned
+    #         # use the prefix XXX
+    #         # if not values.get('federation_account') and\
+    #         #    values.get('is_person'):
+    #         #     federation_account = tmp_act
+    #         #     values['federation_account'] = \
+    #         #         values['fed_country'] + federation_account
+    #         # Set the value to None to make the fields that have a
+    #         # unique constraint get the NULL value at PostgreSQL level, and not
+    #         # the value '' coming from the client
+    #         # if values.get('federation_account') == '':
+    #         #     values['federation_account'] = None
+    #         # Generate internal code
+    #         # if not values.get('code'):
+    #         #     config = Configuration(1)
+    #             # Use the company name . Initially, use the name
+    #             # since the company hasn't been created yet.
+    #             # suffix = Transaction().context.get('company.rec_name') \
+    #             #     or values['name']
+    #             # Generate the partner code in the form of
+    #             # "UUID-" . Where company is the name of the Health
+    #             # Institution.
+    #             #
+    #             # The field "code" is the one that is used in distributed
+    #             # environments, with multiple GNU Health instances across
+    #             # a country / region
+    #             # values['code'] = '%s-%s' % (uuid4(), suffix)
+    #         # values.setdefault('addresses', None)
+    #         # If the partner is a physical person,
+    #         # add new PersonName record with the given and family name
+    #         # as the official name
+    #         if (values.get('is_person')):
+    #             if ('name' in values) or ('lastname' in values):
+    #                 official_name = []
+    #                 given_name = family_name = ''
+    #                 if 'name' in values:
+    #                     given_name = values['name']
+    #                 if 'lastname' in values:
+    #                     family_name = values['lastname']
+    #                 official_name.append(('create', [{
+    #                     'use': 'official',
+    #                     'given': given_name,
+    #                     'family': family_name,
+    #                 }]))
+    #                 values['person_names'] = official_name
+    #     return super(ResPartner, self).create(vals)
 
     def get_rec_name(self, name):
         # Display name on the following sequence

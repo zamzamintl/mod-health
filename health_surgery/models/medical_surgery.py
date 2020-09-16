@@ -7,93 +7,36 @@ from datetime import datetime
 from dateutil import relativedelta
 
 
-class MedicalSequences(models.Model):
-    _name = 'medical.sequences'
-    _description = 'Sequences'
-
-    surgery_code_sequence = fields.Many2one(
-        'ir.sequence', 
-        string='Surgery Sequence',
-        required=True,
-        domain=[('code', '=', 'medical.surgery')]
-    )
-
-    def multivalue_model(self, field):
-        if field in sequences:
-            return self.env('medical.sequence.setup')
-        return super(MedicalSequences, self).multivalue_model(field)
-
-    def default_surgery_code_sequence(self):
-        return self.multivalue_model(
-            'surgery_code_sequence').default_surgery_code_sequence()
-
-# SEQUENCE SETUP
-class MedicalSequenceSetup(models.Model):
-    _name = 'medical.sequence.setup'
-    _description = 'Medical Sequences Setup'
-
-    surgery_code_sequence = fields.Many2one(
-        'ir.sequence',
-        string='Surgery Code Sequence',
-        required=True,
-        domain=[('code', '=', 'medical.surgery')]
-    )
-
-    def __register__(self, module_name):
-        TableHandler = backend.get('TableHandler')
-        exist = TableHandler.table_exist(self._table)
-
-        super(MedicalSequenceSetup, self).__register__(module_name)
-
-        if not exist:
-            self._migrate_MultiValue([], [], [])
-
-    def _migrate_property(self, field_names, value_names, fields):
-        field_names.extend(sequences)
-        value_names.extend(sequences)
-        migrate_property(
-            'medical.sequences', field_names, self, value_names,
-            fields=fields)
-
-    def default_surgery_code_sequence(self):
-        ModelData = self.env['ir.model.data']
-        return ModelData.get_id(
-            'health_surgery', 'seq_medical_surgery_code')
-
-# END SEQUENCE SETUP , MIGRATION FROM FIELDS.MultiValue
-
-class RCRI(models.Model):
+class MedicalRcri(models.Model):
     _name = 'medical.rcri'
     _description = 'Revised Cardiac Risk Index'
 
     patient = fields.Many2one(
-        'medical.patient', 
-        'Patient ID', 
+        'medical.patient',
+        'Patient ID',
         required=True
     )
     rcri_date = fields.Datetime(
         string='Date',
-        required=True
+        required=True,
+        default=datetime.now(),
     )
     health_professional = fields.Many2one(
-        'medical.practitioner', 
+        'medical.practitioner',
         'Health Professional',
-        help="Health professional /"
-        "Cardiologist who signed the assesment RCRI"
+        help="Health professional/Cardiologist who signed the assesment RCRI"
     )
     rcri_high_risk_surgery = fields.Boolean(
         'High Risk surgery',
-        help='Includes andy suprainguinal vascular, intraperitoneal,'
-        ' or intrathoracic procedures'
+        help='Suprainguinal vascular, intraperitoneal, or intrathoracic proc.'
     )
     rcri_ischemic_history = fields.Boolean(
         'History of ischemic heart disease',
-        help="history of MI or a positive exercise test, current \
-        complaint of chest pain considered to be secondary to myocardial \
-        ischemia, use of nitrate therapy, or ECG with pathological \
-        Q waves; do not count prior coronary revascularization procedure \
-        unless one of the other criteria for ischemic heart disease is \
-        present"
+        help="history of MI or a positive exercise test, current complaint of \
+        of chest pain considered to be secondary to myocardial ischemia, use \
+        of nitrate therapy, or ECG with pathological Q waves; do not count \
+        prior coronary revascularization procedure unless one of the other \
+        criteria for ischemic heart disease is present"
     )
     rcri_congestive_history = fields.Boolean(
         string='History of congestive heart disease'
@@ -111,10 +54,11 @@ class RCRI(models.Model):
     )
     rcri_total = fields.Integer(
         'Score',
-        help='Points 0: Class I Very Low (0.4% complications)\n'
-        'Points 1: Class II Low (0.9% complications)\n'
-        'Points 2: Class III Moderate (6.6% complications)\n'
-        'Points 3 or more : Class IV High (>11% complications)')
+        help='Points 0: Class I Very Low (0.4% complications)\n\
+        Points 1: Class II Low (0.9% complications)\n\
+        Points 2: Class III Moderate (6.6% complications)\n\
+        Points 3 or more : Class IV High (>11% complications)'
+    )
     rcri_class = fields.Selection(
         [
             ('I', 'I'),
@@ -126,37 +70,13 @@ class RCRI(models.Model):
         sort=False
     )
 
-    @api.depends(
+    @api.onchange(
         'rcri_high_risk_surgery', 'rcri_ischemic_history',
         'rcri_congestive_history', 'rcri_diabetes_history',
-        'rcri_cerebrovascular_history', 'rcri_kidney_history')
-    
-    def on_change_with_rcri_total(self):
-
-        total = 0
-        if self.rcri_high_risk_surgery:
-            total = total + 1
-        if self.rcri_ischemic_history:
-            total = total + 1
-        if self.rcri_congestive_history:
-            total = total + 1
-        if self.rcri_diabetes_history:
-            total = total + 1
-        if self.rcri_kidney_history:
-            total = total + 1
-        if self.rcri_cerebrovascular_history:
-            total = total + 1
-
-        return total
-
-    @api.depends(
-        'rcri_high_risk_surgery', 'rcri_ischemic_history',
-        'rcri_congestive_history', 'rcri_diabetes_history',
-        'rcri_cerebrovascular_history', 'rcri_kidney_history')
-    
+        'rcri_cerebrovascular_history', 'rcri_kidney_history'
+    )
     def on_change_with_rcri_class(self):
         rcri_class = ''
-
         total = 0
         if self.rcri_high_risk_surgery:
             total = total + 1
@@ -170,7 +90,7 @@ class RCRI(models.Model):
             total = total + 1
         if self.rcri_cerebrovascular_history:
             total = total + 1
-
+        self.rcri_total = total
         if total == 0:
             rcri_class = 'I'
         if total == 1:
@@ -179,17 +99,7 @@ class RCRI(models.Model):
             rcri_class = 'III'
         if (total > 2):
             rcri_class = 'IV'
-
-        return rcri_class
-
-    def default_rcri_date():
-        return Datetime.now()
-
-    def default_rcri_total():
-        return 0
-
-    def default_rcri_class():
-        return 'I'
+        self.rcri_class = rcri_class
 
     def get_rec_name(self, name):
         res = 'Points: ' + str(self.rcri_total) + ' (Class ' + \
@@ -197,7 +107,7 @@ class RCRI(models.Model):
         return res
 
     def __setup__(self):
-        super(RCRI, self).__setup__()
+        super(MedicalRcri, self).__setup__()
         self._order.insert(0, ('rcri_date', 'DESC'))
 
     def search_rec_name(self, name, clause):
@@ -205,19 +115,15 @@ class RCRI(models.Model):
             bool_op = 'AND'
         else:
             bool_op = 'OR'
-        return [bool_op,
-            ('patient',) + tuple(clause[1:]),
-            ]
+        return [bool_op, ('patient',) + tuple(clause[1:])]
 
 
-class Surgery(models.Model):
+class MedicalSurgery(models.Model):
     _name = 'medical.surgery'
     _description = 'Surgery'
-    _inherit = 'res.partner'
-
+    _inherit = 'medical.abstract.entity'
 
     def surgery_duration(self, name):
-
         if (self.surgery_end_date and self.surgery_date):
             return self.surgery_end_date - self.surgery_date
         else:
@@ -225,8 +131,9 @@ class Surgery(models.Model):
 
     def patient_age_at_surgery(self, name):
         if (self.patient.name.dob and self.surgery_date):
-            rdelta = relativedelta (self.surgery_date.date(),
-                self.patient.name.dob)
+            rdelta = relativedelta(
+                self.surgery_date.date(), self.patient.name.dob
+            )
             years_months_days = str(rdelta.years) + 'y ' \
                 + str(rdelta.months) + 'm ' \
                 + str(rdelta.days) + 'd'
@@ -234,8 +141,8 @@ class Surgery(models.Model):
         else:
             return None
 
-    patient = fields.Many2one(
-        comodel_name='medical.patient', 
+    patient_id = fields.Many2one(
+        comodel_name='medical.patient',
         string='Patient',
         required=True
     )
@@ -252,12 +159,16 @@ class Surgery(models.Model):
         readonly=True,
         help="Health Center code / sequence"
     )
+    main_procedure = fields.Many2one(
+        'medical.operation',
+        'Main Proc',
+        domain=[('name', '=', 'active_id')],
+    )
     procedures = fields.One2many(
         comodel_name='medical.operation',
         inverse_name='name',
         string='Procedures',
-        help="List of the procedures in the surgery. Please enter the first "
-        "one as the main procedure"
+        help="List of other procedures in the surgery."
     )
     supplies = fields.One2many(
         comodel_name='medical.surgery_supply',
@@ -287,23 +198,25 @@ class Surgery(models.Model):
         help="Surgeon who did the procedure"
     )
     anesthetist = fields.Many2one(
-        'medical.practitioner', 
+        'medical.practitioner',
         'Anesthetist',
         help="Anesthetist in charge"
     )
     surgery_date = fields.Datetime(
         string='Date',
-        help="Start of the Surgery"
+        help="Start of the Surgery",
+        default=datetime.now(),
     )
     surgery_end_date = fields.Datetime(
         'End',
-        help="Automatically set when the surgery is done."
-            "It is also the estimated end time when confirming the surgery."
+        help="Automatically set when the surgery is done.\n\
+        It is also the estimated end time when confirming the surgery."
     )
     surgery_length = fields.Datetime(
         'Duration',
-        states={('invisible', 'state', 'done'),
-                ('state', 'signed')},
+        states={
+            'done': [('invisible', True)], 'signed': [('invisible', True)]
+        },
         help="Length of the surgery",
     )
     state = fields.Selection(
@@ -314,46 +227,38 @@ class Surgery(models.Model):
             ('in_progress', 'In Progress'),
             ('done', 'Done'),
             ('signed', 'Signed'),
-        ], 
+        ],
         'State',
         readonly=True,
-        sort=False
+        sort=False,
+        default='draft'
     )
     signed_by = fields.Many2one(
         'medical.practitioner',
         'Signed by',
         readonly=True,
-        states={'invisible', 'state', 'signed'},
+        states={'signed': [('invisible', True)]},
         help="Health Professional that signed this surgery document"
-    )
-    # age is deprecated in GNU Health 2.0
-    age = fields.Char(
-        'Estimative Age',
-        help="Use this field for historical purposes, \
-        when no date of surgery is given"
     )
     computed_age = fields.Char(
         string='Age',
         help="Computed patient age at the moment of the surgery",
     )
-    gender = fields.Selection(
-        [
-            ('m', 'Male'),
-            ('f', 'Female'),
-            ('f-m','Female -> Male'),
-            ('m-f','Male -> Female'),
-        ],
-        'Gender',
-#        'get_patient_gender',
-        searcher='search_patient_gender'
-    )
     description = fields.Char(string='Description')
     preop_mallampati = fields.Selection(
         [
-            ('Class 1', 'Class 1: Full visibility of tonsils, uvula and soft palate'),
-            ('Class 2', 'Class 2: Visibility of hard and soft palate, upper portion of tonsils and uvula'),
-            ('Class 3', 'Class 3: Soft and hard palate and base of the uvula are visible'),
-            ('Class 4', 'Class 4: Only Hard Palate visible'),
+            (
+                'Class 1',
+                'Class 1: Full visibility of tonsils, uvula and soft palate'
+            ), (
+                'Class 2',
+                'Class 2: Visibility of hard and soft palate, upper portion of\
+                tonsils and uvula'
+            ), (
+                'Class 3',
+                'Class 3: Soft and hard palate and base of the uvula are \
+                visible'
+            ), ('Class 4', 'Class 4: Only Hard Palate visible'),
         ],
         'Mallampati Score',
         sort=False
@@ -386,21 +291,33 @@ class Surgery(models.Model):
             ('ps1', 'PS 1 : Normal healthy patient'),
             ('ps2', 'PS 2 : Patients with mild systemic disease'),
             ('ps3', 'PS 3 : Patients with severe systemic disease'),
-            ('ps4', 'PS 4 : Patients with severe systemic disease that is a constant threat to life '),
-            ('ps5', 'PS 5 : Moribund patients who are not expected to survive without the operation'),
-            ('ps6', 'PS 6 : A declared brain-dead patient who organs are being removed for donor purposes'),
+            (
+                'ps4',
+                'PS 4 : Patients with severe systemic disease that is a \
+                constant threat to life'
+            ), (
+                'ps5',
+                'PS 5 : Moribund patients who are not expected to survive \
+                without the operation'
+            ), (
+                'ps6',
+                'PS 6 : A declared brain-dead patient who organs are being \
+                removed for donor purposes'
+            ),
         ],
         'ASA PS',
         help="ASA pre-operative Physical Status",
         sort=False
     )
     preop_rcri = fields.Many2one(
-        'medical.rcri', 'RCRI',
-        help='Patient Revised Cardiac Risk Index\n'
-        'Points 0: Class I Very Low (0.4% complications)\n'
-        'Points 1: Class II Low (0.9% complications)\n'
-        'Points 2: Class III Moderate (6.6% complications)\n'
-        'Points 3 or more : Class IV High (>11% complications)')
+        'medical.rcri',
+        'RCRI',
+        help='Patient Revised Cardiac Risk Index\n\
+        Points 0: Class I Very Low (0.4% complications)\n\
+        Points 1: Class II Low (0.9% complications)\n\
+        Points 2: Class III Moderate (6.6% complications)\n\
+        Points 3 or more : Class IV High (>11% complications)'
+    )
     surgical_wound = fields.Selection(
         [
             ('I', 'Clean . Class I'),
@@ -413,16 +330,8 @@ class Surgery(models.Model):
     )
     extra_info = fields.Text(string='Extra Info')
     anesthesia_report = fields.Text(string='Anesthesia Report')
-    institution = fields.Many2one(
-        'res.partner',
-        string='Institution'
-    )
-    report_surgery_date = fields.Date(
-        'Surgery Date',
-    )
-    report_surgery_time = fields.Datetime(
-        'Surgery Time',
-    )
+    institution = fields.Many2one('medical.center', string='Institution')
+    report_surgery_date = fields.Datetime('Surgery date and time')
     surgery_team = fields.One2many(
         comodel_name='medical.surgery_team',
         inverse_name='partner_id',
@@ -432,44 +341,11 @@ class Surgery(models.Model):
     postoperative_dx = fields.Many2one(
         comodel_name='medical.pathology',
         string='Post-op dx',
-        states={('invisible', 'state', 'done'),
-                ('state', 'signed')},
+        states={
+            'done': [('invisible', True)], 'signed': [('invisible', True)]
+        },
         help="Post-operative diagnosis"
     )
-
-    def default_institution():
-        HealthInst = self.env['res.partner']
-        institution = HealthInst.get_institution()
-        return institution
-
-    def default_surgery_date():
-        return Datetime.now()
-
-    def default_surgeon():
-        HealthProf= self.env['medical.practitioner']
-        surgeon = HealthProf.get_practitioner()
-        return surgeon
-
-    def default_state():
-        return 'draft'
-
-    def get_patient_gender(self, name):
-        return self.patient.gender
-
-    def search_patient_gender(self, name, clause):
-        res = []
-        value = clause[2]
-        res.append(('patient.name.gender', clause[1], value))
-        return res
-
-    # Show the gender and age upon entering the patient
-    # These two are function fields (don't exist at DB level)
-    @api.depends('patient')
-    def on_change_patient(self):
-        gender=None
-        age=''
-        self.gender = self.patient.gender
-        self.computed_age = self.patient.age
 
     @api.model
     def create(self, vals):
@@ -482,59 +358,7 @@ class Surgery(models.Model):
                 config = Config(1)
                 values['code'] = Sequence.get_id(
                     config.surgery_code_sequence.id)
-        return super(Surgery, self).create(vals)
-
-
-    def __setup__(self):
-        super(Surgery, self).__setup__()
-        self._error_messages.update({
-            'end_date_before_start': 'End time "%(end_date)s" BEFORE '
-                'surgery date "%(surgery_date)s"',
-            'or_is_not_available': 'Operating Room is not available'})
-
-        self._order.insert(0, ('surgery_date', 'DESC'))
-
-        self._buttons.update({
-            'confirmed': {
-                ('invisible', 'state', 'draft'),
-                ('state', 'cancelled'),
-                },
-            'cancel': {
-                ('invisible', 'state', 'confirmed'),
-                },
-            'start': {
-                ('invisible', 'state', 'confirmed'),
-                },
-            'done': {
-                ('invisible', 'state', 'in_progress'),
-                },
-            'signsurgery': {
-                ('invisible', 'state', 'done'),
-                },
-            }
-        )
-
-    def validate(self, surgeries):
-        super(Surgery, self).validate(surgeries)
-        for surgery in surgeries:
-            surgery.validate_surgery_period()
-
-    def validate_surgery_period(self):
-        Lang = self.env['ir.lang']
-
-        language, = Lang.search([
-            ('code', '=', Transaction().language),
-            ])
-        if (self.surgery_end_date and self.surgery_date):
-            if (self.surgery_end_date < self.surgery_date):
-                self.raise_user_error('end_date_before_start', {
-                        'surgery_date': Lang.strftime(self.surgery_date,
-                            language.code,
-                            language.date),
-                        'end_date': Lang.strftime(self.surgery_end_date,
-                            language.code,
-                            language.date),
-                        })
+        return super(MedicalSurgery, self).create(vals)
 
     def write(self, surgeries, vals):
         # Don't allow to write the record if the surgery has been signed
@@ -542,115 +366,7 @@ class Surgery(models.Model):
             self.raise_user_error(
                 "This surgery is at state Done and has been signed\n"
                 "You can no longer modify it.")
-        return super(Surgery, self).write(surgeries, vals)
-
-    ## Method to check for availability and make the Operating Room reservation
-     # for the associated surgery
-
-    def confirmed(self, surgeries):
-        surgery_id = surgeries[0]
-        Operating_room = self.env['medical.center']
-        cursor = Transaction().connection.cursor()
-
-        # Operating Room and end surgery time check
-        if (not surgery_id.operating_room or not surgery_id.surgery_end_date):
-            self.raise_user_error("Operating Room and estimated end time  "
-            "are needed in order to confirm the surgery")
-
-        or_id = surgery_id.operating_room.id
-        cursor.execute("SELECT COUNT(*) \
-            FROM gnuhealth_surgery \
-            WHERE (surgery_date::timestamp,surgery_end_date::timestamp) \
-                OVERLAPS (timestamp %s, timestamp %s) \
-              AND (state = %s or state = %s) \
-              AND operating_room = CAST(%s AS INTEGER) ",
-            (surgery_id.surgery_date,
-            surgery_id.surgery_end_date,
-            'confirmed', 'in_progress', str(or_id)))
-        res = cursor.fetchone()
-        if (surgery_id.surgery_end_date <
-            surgery_id.surgery_date):
-            self.raise_user_error("The Surgery end date must later than the \
-                Start")
-        if res[0] > 0:
-            self.raise_user_error('or_is_not_available')
-        else:
-            self.write(surgeries, {'state': 'confirmed'})
-
-    # Cancel the surgery and set it to draft state
-    # Free the related Operating Room
-
-    def cancel(self, surgeries):
-        surgery_id = surgeries[0]
-        Operating_room = self.env['medical.center']
-
-        self.write(surgeries, {'state': 'cancelled'})
-
-    # Start the surgery
-    def start(self, surgeries):
-        surgery_id = surgeries[0]
-        Operating_room = self.env['medical.center']
-
-        self.write(surgeries,
-            {'state': 'in_progress',
-             'surgery_date': Datetime.now(),
-             'surgery_end_date': Datetime.now()})
-        Operating_room.write([surgery_id.operating_room], {'state': 'occupied'})
-
-    # Finnish the surgery
-    # Free the related Operating Room
-
-    def done(self, surgeries):
-        surgery_id = surgeries[0]
-        Operating_room = self.env['medical.center']
-
-        self.write(surgeries, {'state': 'done',
-                              'surgery_end_date': Datetime.now()})
-
-        Operating_room.write([surgery_id.operating_room], {'state': 'free'})
-
-    # Sign the surgery document, and the surgical act.
-
-    def signsurgery(self, surgeries):
-        surgery_id = surgeries[0]
-
-        # Sign, change the state of the Surgery to "Signed"
-        # and write the name of the signing health professional
-
-        signing_hp = self.env['medical.practitioner'].get_practitioner()
-        if not signing_hp:
-            self.raise_user_error(
-                "No health professional associated to this user !")
-
-        self.write(surgeries, {
-            'state': 'signed',
-            'signed_by': signing_hp})
-
-    def get_report_surgery_date(self, name):
-        Company = self.env('company.company')
-
-        timezone = None
-        company_id = Transaction().context.get('company')
-        if company_id:
-            company = Company(company_id)
-            if company.timezone:
-                timezone = pytz.timezone(company.timezone)
-
-        dt = self.surgery_date
-        return Datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).date()
-
-    def get_report_surgery_time(self, name):
-        Company = self.env['company.company']
-
-        timezone = None
-        company_id = Transaction().context.get('company')
-        if company_id:
-            company = Company(company_id)
-            if company.timezone:
-                timezone = pytz.timezone(company.timezone)
-
-        dt = self.surgery_date
-        return Datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
+        return super(MedicalSurgery, self).write(surgeries, vals)
 
     def search_rec_name(self, name, clause):
         if clause[1].startswith('!') or clause[1].startswith('not '):
@@ -658,20 +374,16 @@ class Surgery(models.Model):
         else:
             bool_op = 'OR'
         return [
-            bool_op,
-            ('patient',) + tuple(clause[1:]),
+            bool_op, ('patient',) + tuple(clause[1:]),
             ('code',) + tuple(clause[1:]),
-            ]
+        ]
 
 
-class Operation(models.Model):
+class MedicalOperation(models.Model):
     _name = 'medical.operation'
     _description = 'Operation - Surgical Procedures'
 
-    name = fields.Many2one(
-        'medical.surgery',
-        'Surgery'
-    )
+    name = fields.Many2one('medical.surgery', 'Surgery')
     procedure = fields.Many2one(
         'medical.procedure',
         'Code',
@@ -681,19 +393,6 @@ class Operation(models.Model):
     )
     notes = fields.Text(string='Notes')
 
-    def get_rec_name(self, name):
-        return self.procedure.rec_name
-
-
-class SurgeryMainProcedure(models.Model):
-    _name = 'medical.surgery'
-    _description = 'Surgery Main Procedure'
-
-    main_procedure = fields.Many2one(
-        'medical.operation',
-        'Main Proc',
-        domain=[('name', '=', 'active_id')],
-    )
 
 class SurgerySupply(models.Model):
     _name = 'medical.surgery_supply'
@@ -709,7 +408,7 @@ class SurgerySupply(models.Model):
         help="Initial required quantity"
     )
     supply = fields.Many2one(
-        'uom.uom', 
+        'uom.uom',
         'Supply',
         required=True,
         domain=[('is_medical_supply', '=', True)],
@@ -722,6 +421,7 @@ class SurgerySupply(models.Model):
         help="Actual amount used"
     )
 
+
 class SurgeryTeam(models.Model):
     _name = 'medical.surgery_team'
     _inherit = 'medical.abstract.entity'
@@ -732,14 +432,14 @@ class SurgeryTeam(models.Model):
         'Surgery'
     )
     team_member = fields.Many2one(
-        'medical.practitioner', 
+        'medical.practitioner',
         'Member',
         required=True,
         index=True,
         help="Health professional that participated on this surgery"
     )
     role = fields.Many2one(
-        comodel_name='medical.specialty', 
+        comodel_name='medical.specialty',
         string='Role',
         domain=[('name', '=', 'team_member')],
     )
@@ -747,12 +447,11 @@ class SurgeryTeam(models.Model):
 
 
 class PatientData(models.Model):
-#    _name = 'medical.patient'
-#    _description = 'Datos del paciente'
+    _name = 'medical.patient'
     _inherit = 'medical.patient'
 
     surgery = fields.One2many(
-        comodel_name='medical.surgery', 
+        comodel_name='medical.surgery',
         inverse_name='patient_id',
         string='Surgeries',
         readonly=True

@@ -7,14 +7,11 @@
     "summary": "Adds a concept of Medical Centers to Patients.",
     'version': '13.0.0.0.1',
     "category": "Medical",
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     "author": "LabViv",
     "license": "GPL-3",
     'description': "Medical_Center module ported from OCA/medical-vertical.",
-    "depends": [
-        "medical",
-        "medical_practitioner",
-    ],
+    "depends": ["medical_practitioner"],
     "data": [
         "views/medical_center.xml",
         "views/medical_patient.xml",

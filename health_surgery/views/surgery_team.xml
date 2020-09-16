@@ -1,12 +1,10 @@
-<?xml version="1.0"?>
-<!--Copyright 2011-2020 GNU Solidario>
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2011-2020 GNU Solidario>
 	Copyright 2020 LabViv
 	License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
- -->
+-->
 <odoo>
-
-<!-- Surgery Team -->
-
 	<record model="ir.ui.view" id="medical_surgery_team_form">
 		<field name="name">medical.surgery.team.form</field>
 		<field name="model">medical.surgery_team</field>
@@ -18,19 +16,18 @@
 			</form>
 		</field>
 	</record>
-
-	<record model="ir.ui.view" id="gnuhealth_surgery_team_tree">
+	<!-- <record model="ir.ui.view" id="gnuhealth_surgery_team_tree">
 		<field name="name">medical.surgery.team.tree</field>
 		<field name="model">medical.surgery_team</field>
 		<field name="arch" type="xml">
 			<tree>
-				<field name="patient"/>
-				<field name="description" expand="1"/>
-				<field name="pathology" expand="1"/>
+				<field name="patient_id"/>
+				<field name="description"/>
+				<field name="pathology"/>
 				<field name="classification"/>
 				<field name="surgery_date" widget="date"/>
 				<field name="surgery_date" string="Time" widget="time"/>
-				<field name="main_procedure" expand="1"/>
+				<field name="main_procedure"/>
 				<field name="state"/>
 				<field name="surgery_length"/>
 				<field name="operating_room"/>
@@ -39,5 +36,5 @@
 				<field name="institution"/>
 			</tree>
 		</field>
-	</record>
+	</record> -->
 </odoo>

@@ -7,7 +7,7 @@
     'summary': "Unidad de vivienda para el SDGDS",
     'description': "Unidad de vivienda para SDGDS. Basado en GNUHealth.",
     'author':  "LabViv",
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     'installable': True,
     'application': True,
     'category': 'Medical',

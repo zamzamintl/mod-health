@@ -1,39 +1,31 @@
-# -*- coding: utf-8 -*-
-# Copyright Copyright 2020 NeoHan Solutions Cuba
-#    para GNU Solidario  <health@gnusolidario.org>
-# Copyright (C) 2011-2020 Luis Falcon <falcon@gnuhealth.org>
-# Copyright (C) 2011-2020 GNU Solidario <health@gnusolidario.org>
-# Copyright (C) 2011 Cédric Krier
-
+# Copyright 2008 Luis Falcon <falcon@gnuhealth.org>
+# Copyright 2020 LabViv.
+# License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
 {
-    'name': "Medical Gynecology",
-    'summary': """
-        GNU Health Gynecology and Obstetrics package
-    """,
+    'name': 'Medical Gynecology',
     'description': """
         Medical Gyneco Module
-        ##########################
-
         This module includes:
-
             * Gynecological Information
             * Obstetric information
             * Perinatal Information and monitoring
             * Puerperium
     """,
-    'author': "GNU Solidario",
-    'website': "https://www.gnuhealth.org",
+    'version': '13.0.0.0.1',
     'category': 'Medical',
-    'version': '13.0.1',
-    'depends': ['base', 'medical'],
+    'author': 'LabViv',
+    'support': 'Julio César Méndez <mendezjcx@thoriumcorp.website>',
+    'website': 'https://git.labviv.org.ve/',
+    'license': 'GPL-3',
+    'summary': 'GNU Health Gynecology and Obstetrics package',
+    'depends': ['medical_physician'],
     'data': [
         'security/ir.model.access.csv',
         'views/medical_gyneco_view.xml',
         # data/gnuhealth_commands.xml,
         # security/access_rights.xml,
     ],
-    'demo': [],
     'installable': True,
     'application': True,
-    'maintainer': 'Yoinier Hernandez Nieves <yoinier.hn@gmail.com>'
+    'maintainer': 'Julio César Méndez <mendezjcx@thoriumcorp.website>'
 }

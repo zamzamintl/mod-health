@@ -9,7 +9,7 @@
     'summary': 'Provides an interface for medical pathology data imports',
     'author': 'LabViv',
     'version': '13.0.0.0.1',
-    'website': 'https://labviv.org.ve/',
+    'website': 'https://git.labviv.org.ve/',
     'category': 'Technical Settings',
     'license': 'GPL-3',
     'depends': ['medical_pathology'],

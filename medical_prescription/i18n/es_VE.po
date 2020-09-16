@@ -323,7 +323,7 @@ msgstr "Líneas de orden de prescripción"
 #: model:ir.actions.act_window,name:medical_prescription.medical_prescription_order_action
 #: model:ir.ui.menu,name:medical_prescription.medical_prescription_order_menu
 msgid "Prescription Orders"
-msgstr "Órdenes de prescripción"
+msgstr "Líneas de prescripción"
 
 #. module: medical_prescription
 #: model:ir.model.fields,field_description:medical_prescription.field_medical_prescription_order_line__qty
