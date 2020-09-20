@@ -10,7 +10,6 @@ from odoo.exceptions import ValidationError
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
-
     type = fields.Selection(
         selection_add=[('medical.patient', 'Medical Patient')]
     )
@@ -21,11 +20,10 @@ class ResPartner(models.Model):
     patient_ids = fields.One2many(
         string='Paciente',
         comodel_name='medical.patient',
-        # compute='_compute_patient_ids_and_count',
-        inverse_name='partner_id'
+        compute='_compute_patient_ids_and_count',
     )
     count_patients = fields.Integer(
-        # compute='_compute_patient_ids_and_count',
+        compute='_compute_patient_ids_and_count',
     )
     birthdate_date = fields.Date(
         string='DOB',
@@ -39,7 +37,7 @@ class ResPartner(models.Model):
     )
     weight = fields.Float()
     weight_uom = fields.Many2one(
-        string="Weight unit",
+        string="Peso",
         comodel_name="uom.uom",
         default=lambda s: s.env['res.lang'].default_uom_by_category('Weight'),
         domain=lambda self: [(
@@ -54,19 +52,13 @@ class ResPartner(models.Model):
                 ('partner_id', '=', self.id),
             ])
 
-    # def _compute_patient_ids_and_count(self):
-    #     for record in self:
-    #         try:
-    #             print(record.id[1])
-    #             patients = self.env['medical.patient'].search([
-    #                 ('partner_id', 'child_of', record.id),
-    #             ])[0]
-    #             print(63, patients)
-    #             record.count_patients = len(patients)
-    #             record.patient_ids = [(6, 0, patients.ids)]
-    #         except Exception as e:
-    #             print(67, e)
-    #             pass
+    def _compute_patient_ids_and_count(self):
+        for record in self:
+            patients = self.env['medical.patient'].search([
+                ('partner_id', 'child_of', record.id),
+            ])
+            record.count_patients = len(patients)
+            record.patient_ids = [(6, 0, patients.ids)]
 
     @api.constrains('birthdate_date')
     def _check_birthdate_date(self):

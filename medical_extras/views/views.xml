@@ -1,7 +1,3 @@
-<!--
- Copyright 2020 LabViv.
- License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
--->
 <odoo>
     <data>
         <record id="view_medical_patient_extends_form" model="ir.ui.view">
@@ -16,6 +12,9 @@
                         <field name="hb"/>
                     </group>
                 </xpath>
+                 <xpath expr="//group[@name='group_medical_general_left']/field[@name='gender']" position="after">
+                      <field name="marital_status"/>
+                 </xpath>
             </field>
         </record>
 
@@ -155,8 +154,8 @@
         />
 
         <record id="medical_hospital_bed_form" model="ir.ui.view">
-            <field name="name">hospital.bed.form.view</field>
-            <field name="model">hospital.bed</field>
+            <field name="name">medical.hospital.bed.form.view</field>
+            <field name="model">medical.hospital.bed</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -190,8 +189,8 @@
         </record>
 
         <record id="medical_hospital_bed_tree" model="ir.ui.view">
-            <field name="name">hospital.bed.tree.view</field>
-            <field name="model">hospital.bed</field>
+            <field name="name">medical.hospital.bed.tree.view</field>
+            <field name="model">medical.hospital.bed</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree>
@@ -206,7 +205,7 @@
 
         <record model="ir.actions.act_window" id="medical_hospital_bed_action">
             <field name="name">Hospital Bed</field>
-            <field name="res_model">hospital.bed</field>
+            <field name="res_model">medical.hospital.bed</field>
             <field name="view_mode">tree,form</field>
         </record>
 

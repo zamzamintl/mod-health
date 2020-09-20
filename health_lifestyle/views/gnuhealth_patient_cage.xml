@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <!--
     Copyright 2008-2020 Luis Falcon <falcon@gnuhealth.org>
     Copyright 2011-2020 GNU Solidario <health@gnusolidario.org>
@@ -12,18 +12,13 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
+                    <group col="4">
                         <field name="evaluation_date"/>
-                        <field name="evaluation_date"/>
-                        <label for="cage_c"/>
-                        <field name="cage_c"/>
-                        <label for="cage_a"/>
-                        <field name="cage_a"/>
-                        <label for="cage_g"/>
-                        <field name="cage_g"/>
-                        <label for="cage_e"/>
-                        <field name="cage_e"/>
-                        <label for="cage_score"/>
+                        <field name="evaluation_date"/>                        
+                        <field name="cage_c"/>                        
+                        <field name="cage_a"/>                       
+                        <field name="cage_g"/>                        
+                        <field name="cage_e"/>                        
                         <field name="cage_score"/>
                     </group>
                 </sheet>

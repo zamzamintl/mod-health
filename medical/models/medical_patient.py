@@ -87,7 +87,6 @@ class MedicalPatient(models.Model):
                 raise ValidationError(_(
                     'Invalid selection - Only a `Female` may be pregnant.',
                 ))
-
     @api.model
     def _create_vals(self, vals):
         vals = super(MedicalPatient, self)._create_vals(vals)

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--from odoo import models, fields, api
-from datetime import date, datetime -->
+<!--# Copyright 2020 Yadieq87@gmail.com -->
 <odoo>
     <data>
-        <!-- 'imaging.test' -->
-        <record id="imaging_test_action_all" model="ir.actions.act_window">
+        <!-- 'gnuhealth.imaging.test' -->
+        <record id="gnuhealth_imaging_test_action_all" model="ir.actions.act_window">
             <field name="name">Imaging Test Action</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">imaging.test</field>
+            <field name="res_model">gnuhealth.imaging.test</field>
             <field name="view_mode">kanban,form,tree</field>
         </record>
-        <record id='imaging_test_view_form' model='ir.ui.view'>
+        <record id='gnuhealth_imaging_test_view_form' model='ir.ui.view'>
             <field name="name">Imaging Test Form</field>
-            <field name="model">imaging.test</field>
+            <field name="model">gnuhealth.imaging.test</field>
             <field name="arch" type="xml">
                 <form string="Imaging Test">
                     <sheet>

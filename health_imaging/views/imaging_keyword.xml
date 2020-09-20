@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--from odoo import models, fields, api
-from datetime import date, datetime -->
 <odoo>
     <data>
         <!--record model="ir.action.wizard" id="wizard_generate_result">
             <field name="name">Dx Imaging - Generate Result</field>
             <field name="wiz_name">wizard.generate.result</field>
-            <field name="model">imaging.test.request</field>
+            <field name="model">gnuhealth.imaging.test.request</field>
         </record-->
         <!--record model="ir.action.wizard" id="patient_imaging_test_request">
             <field name="name">Dx Imaging - New</field>
@@ -39,7 +37,7 @@ from datetime import date, datetime -->
         <!--</record>-->
         <!--<record model="ir.action.keyword" id="wizard_generate_result_keyword">
             <field name="keyword">form_action</field>
-            <field name="model">imaging.test.request,-1</field>
+            <field name="model">gnuhealth.imaging.test.request,-1</field>
             <field name="action" ref="wizard_generate_result"/>
         </record>
         <record model="ir.action.keyword" id="act_open_patient_image_request_keyword1">

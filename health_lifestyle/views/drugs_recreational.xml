@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <!--
     Copyright 2008-2020 Luis Falcon <falcon@gnuhealth.org>
     Copyright 2011-2020 GNU Solidario <health@gnusolidario.org>
@@ -12,7 +12,7 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group string="General Information" id="group_general_info">
+                    <group string="General Information" id="group_general_info" col="4">
                         <field name="name"/>
                         <field name="code"/>
                         <newline/>
@@ -26,7 +26,7 @@
                     <newline/>
                     <separator colspan="4" string="DEA Schedule Level" id="separator_DEA"/>
                     <newline/>
-                    <group col="10" id="group_dea">
+                    <group col="4" id="group_dea">
                         <field name="dea_schedule_i"/>
                         <field name="dea_schedule_ii"/>
                         <field name="dea_schedule_iii"/>
@@ -44,7 +44,7 @@
                         <field name="intoxication_level"/>
                     </group>
                     <separator colspan="4" string="Administration Routes" id="separator_admin_route"/>
-                    <group colspan="4" id="group_admin_route">
+                    <group col="4" id="group_admin_route">
                         <field name="route_oral"/>
                         <field name="route_inhaling"/>
                         <field name="route_popping"/>

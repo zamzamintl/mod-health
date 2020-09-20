@@ -14,7 +14,7 @@
     </record>
 
 <!-- Assign the Group to the "admin" user -->
-    <!-- <record model="res.groups" id="user_admin_group_health_lifestyle">
+    <!-- z<record model="res.groups" id="user_admin_group_health_lifestyle">
         <field name="users" eval="[(4, ref('base.user_root'))]"/>
         <field name="implied_ids" eval="[(4, ref('group_health_lifestyle_admin'))]"/>
     </record> -->

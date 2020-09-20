@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2020 LabViv.
-   License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).-->
 
 <odoo>
     <data>
         <record id="gnuhealth_ophthalmology_evaluation_view_tree" model="ir.ui.view">
-            <field name="name">ophthalmology.evaluation.tree</field>
-            <field name="model">ophthalmology.evaluation</field>
+            <field name="name">gnuhealth.ophthalmology.evaluation.tree</field>
+            <field name="model">gnuhealth.ophthalmology.evaluation</field>
             <field name="arch" type="xml">
                 <tree string="">
                     <field name="patient"/>

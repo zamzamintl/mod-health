@@ -1,12 +1,13 @@
+# -*- coding: utf-8 -*-
 # Copyright 2017 LasLabs Inc.
-# Copyright 2020 LabViv.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
-class Lang(models.Model):
+class ResLang(models.Model):
+
     _inherit = 'res.lang'
 
     default_uom_ids = fields.Many2many(
@@ -19,21 +20,18 @@ class Lang(models.Model):
         for record in self:
             categories = set(record.default_uom_ids.mapped('category_id'))
             if len(categories) != len(record.default_uom_ids):
-                raise ValidationError(
-                    _(
-                        'Only one default unit of measure per category may be\
-                        selected.'
-                    )
-                )
+                raise ValidationError(_(
+                    'Only one default unit of measure per category may '
+                    'be selected.',
+                ))
 
-    @api.model
     def default_uom_by_category(self, category_name, lang=None):
         """Return the default UoM for language for the input UoM Category.
 
         Args:
             category_name (str): Name of the UoM category to get the default
             for.
-            lang (Lang or str, optional): Recordset or code of the language
+            lang (ResLang or str, optional): Recordset or code of the language
             to get the default for. Will use the current user language if
             omitted.
 
@@ -44,8 +42,10 @@ class Lang(models.Model):
         if lang is None:
             lang = self.env.user.lang
         if isinstance(lang, str):
-            lang = self.env['res.lang'].search(
-                [('code', '=', lang)], limit=1,
+            lang = self.env['res.lang'].search([
+                ('code', '=', lang),
+            ],
+                limit=1,
             )
         results = lang.default_uom_ids.filtered(
             lambda r: r.category_id.name == category_name,

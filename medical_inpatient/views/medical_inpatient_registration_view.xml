@@ -6,8 +6,8 @@
 <odoo>
     <data>
         <record id="medical_inpatient_registration_form_view" model="ir.ui.view">
-            <field name="name">medical.inpatient_registration.form.view</field>
-            <field name="model">medical.inpatient_registration</field>
+            <field name="name">medical.inpatient.registration.form.view</field>
+            <field name="model">medical.inpatient.registration</field>
             <field name="arch" type="xml">
                 <form>
                     <header>						
@@ -126,8 +126,8 @@
         </record>
 
         <record id="medical_inpatient_registration_tree_view" model="ir.ui.view">
-            <field name="name">medical.inpatient_registration.tree.view</field>
-            <field name="model">medical.inpatient_registration</field>
+            <field name="name">medical.inpatient.registration.tree.view</field>
+            <field name="model">medical.inpatient.registration</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree>
@@ -146,7 +146,7 @@
 
         <record model="ir.actions.act_window" id="medical_inpatient_registration_action">
             <field name="name">Inpatient Registration</field>
-            <field name="res_model">medical.inpatient_registration</field>
+            <field name="res_model">medical.inpatient.registration</field>
             <field name="view_mode">tree,form</field>
         </record>
 

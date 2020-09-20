@@ -1,10 +1,29 @@
-# Copyright 2008 Luis Falcon <falcon@gnuhealth.org>
-# Copyright 2020 LabViv.
-# License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
-
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    GNU Health: The Free Health and Hospital Information System
+#    Copyright (C) 2008-2020 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2020 GNU Solidario <health@gnusolidario.org>
+#
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+import datetime
 from odoo import models, fields, api
-from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
+from datetime import datetime, timedelta, date
 
 
 class PatientPregnancy(models.Model):
@@ -14,15 +33,20 @@ class PatientPregnancy(models.Model):
     name = fields.Many2one(
         'medical.patient',
         'Patient',
-        domain=[('gender', '=', 'female')],
+        required=True,
+        domain=[
+            ('gender', '=', 'female')
+        ]
+    )
+    gravida = fields.Integer(
+        string='Pregnancy #',
         required=True
     )
-    gravida = fields.Integer(string='Pregnancy #', required=True)
     computed_age = fields.Char(
         string='Age',
         help='Computed patient age at the moment of LMP',
         compute='patient_age_at_pregnancy',
-        requerid=True
+        default=0
     )
     warning = fields.Boolean(
         string='Warn',
@@ -41,8 +65,8 @@ class PatientPregnancy(models.Model):
     )
     reverse_weeks = fields.Integer(
         string="Pr. Weeks",
-        help="Number of weeks at the end of pregnancy. Used only with the \
-        reverse input method."
+        help="Number of weeks at \
+        the end of pregnancy. Used only with the reverse input method."
     )
     lmp = fields.Date(
         string='LMP',
@@ -72,41 +96,58 @@ class PatientPregnancy(models.Model):
         string='Current Pregnancy',
         help='This field marks the current pregnancy'
     )
-    fetuses = fields.Integer(string='Fetuses', required=True)
-    monozygotic = fields.Boolean(string='Monozygotic')
+    fetuses = fields.Integer(
+        string='Fetuses',
+        required=True
+    )
+    monozygotic = fields.Boolean(
+        string='Monozygotic'
+    )
     pregnancy_end_result = fields.Selection(
         [
+            ('', ''),
             ('live_birth', 'Live birth'),
             ('abortion', 'Abortion'),
             ('stillbirth', 'Stillbirth'),
-            ('status_unknown', 'Status unknown')
+            ('status_unknown', 'Status unknown'),
         ],
         string='Result',
         sort=False
     )
-    pregnancy_end_date = fields.Datetime(string='End of Pregnancy')
-    bba = fields.Boolean(string='BBA', help="Born Before Arrival")
-    home_birth = fields.Boolean(string='Home Birth', help="Home Birth")
+    pregnancy_end_date = fields.Datetime(
+        string='End of Pregnancy'
+    )
+    bba = fields.Boolean(
+        string='BBA',
+        help="Born Before Arrival"
+    )
+    home_birth = fields.Boolean(
+        string='Home Birth',
+        help="Home Birth"
+    )
     pregnancy_end_age = fields.Integer(
         string='Weeks',
         help='Weeks at the end of pregnancy',
         compute='get_pregnancy_data'
     )
     iugr = fields.Selection(
-        [('symmetric', 'Symmetric'), ('assymetric', 'Asymmetric')],
+        [
+            ('', ''),
+            ('symmetric', 'Symmetric'),
+            ('assymetric', 'Asymmetric'),
+        ],
         string='IUGR',
         sort=False
     )
     institution = fields.Many2one(
-        comodel_name='res.partner',
+        comodel_name='medical.institution',
         string='Institution',
-        domain=[('is_institution', '=', True)]
     )
     healthprof = fields.Many2one(
-        comodel_name='medical.physician',
         string='Health Prof',
+        comodel_name='medical.healthprofessional',
+        help='Health Professional who created this initial obstetric record',
         readonly=True,
-        help="Health Professional who created this initial obstetric record"
     )
     gravidae = fields.Integer(
         string='Pregnancies',
@@ -127,13 +168,23 @@ class PatientPregnancy(models.Model):
         compute='patient_obstetric_info'
     )
     blood_type = fields.Selection(
-        [('A', 'A'), ('B', 'B'), ('AB', 'AB'), ('O', 'O')],
+        [
+            ('', ''),
+            ('A', 'A'),
+            ('B', 'B'),
+            ('AB', 'AB'),
+            ('O', 'O'),
+        ],
         string='Blood Type',
         sort=False,
         compute='patient_blood_info'
     )
     rh = fields.Selection(
-        [('+', '+'), ('-', '-')],
+        [
+            ('', ''),
+            ('+', '+'),
+            ('-', '-'),
+        ],
         string='Rh',
         compute='patient_blood_info'
     )
@@ -145,17 +196,11 @@ class PatientPregnancy(models.Model):
             ('sc', 'SC'),
             ('cc', 'CC'),
             ('athal', 'A-THAL'),
-            ('bthal', 'B-THAL')
+            ('bthal', 'B-THAL'),
         ],
         string='Hb',
         computed='patient_blood_info'
     )
-
-    _sql_constraints = [(
-        'gravida_uniq',
-        'unique(name, gravida)',
-        'This pregnancy code for this patient already exists'
-    )]
 
     def patient_obstetric_info(self):
         self.gravidae = self.name.gravida
@@ -168,7 +213,7 @@ class PatientPregnancy(models.Model):
         self.rh = self.name.rh
         self.hb = self.name.hb
 
-    @api.onchange('name')
+    @api.depends('name')
     def on_change_name(self):
         self.gravidae = self.name.gravida
         self.premature = self.name.premature
@@ -178,25 +223,56 @@ class PatientPregnancy(models.Model):
         self.rh = self.name.rh
         self.hb = self.name.hb
 
+    @api.depends('name')
+    def validate(self, pregnancies):
+        super(PatientPregnancy, self).validate(pregnancies)
+        for pregnancy in pregnancies:
+            pregnancy.check_patient_current_pregnancy()
+
+    def check_patient_current_pregnancy(self):
+        ''' Check for only one current pregnancy in the patient '''
+        if self.current_pregnancy:
+            raise UserError(
+                _(
+                    'Our records indicate that the patient'
+                    ' is already pregnant !'
+                )
+            )
+
+    _sql_constraints = [
+        (
+            'gravida_uniq',
+            'unique(name)',
+            'This pregnancy code for this patient already exists'
+        ),
+    ]
+
+    @api.model
+    def default_current_pregnancy():
+        return True
+
     @api.depends('reverse_weeks', 'pregnancy_end_date')
     def on_change_with_lmp(self):
         if (self.reverse_weeks and self.pregnancy_end_date):
-            estimated_lmp = datetime.\
-                date(self.pregnancy_end_date - timedelta(self.reverse_weeks*7))
+            estimated_lmp = datetime.date(
+                self.pregnancy_end_date - timedelta(self.reverse_weeks*7))
             return estimated_lmp
 
     def patient_age_at_pregnancy(self):
         for rec in self:
             if (rec.name.birthdate_date and rec.lmp):
-                rdelta = relativedelta(rec.lmp, rec.name.birthdate_date)
+                rdelta = relativedelta(
+                    rec.lmp,
+                    rec.name.birthdate_date
+                )
                 rec.computed_age = str(rdelta.years)
 
     def get_pregnancy_data(self):
         for rec in self:
             rec.pdd = self.lmp + timedelta(days=280)
             if rec.pregnancy_end_date:
-                gestational_age = datetime.date(self.pregnancy_end_date) - \
-                    self.lmp
+                gestational_age = datetime.date(
+                    self.pregnancy_end_date) - self.lmp
                 rec.pregnancy_end_age = int((gestational_age.days) / 7)
             else:
                 rec.pregnancy_end_age = 0
@@ -214,14 +290,21 @@ class PrenatalEvaluation(models.Model):
 
     name = fields.Many2one(
         comodel_name='medical.patient.pregnancy',
-        string='Patient Pregnancy'
+        string='Patient Pregnancy',
+        required=True,
+        domain=[
+            ('gender', '=', 'female')
+        ]
     )
     evaluation = fields.Many2one(
         comodel_name='medical.patient.evaluation',
         string='Patient Evaluation',
         readonly=True
     )
-    evaluation_date = fields.Datetime(string='Date', required=True)
+    evaluation_date = fields.Datetime(
+        string='Date',
+        required=True
+    )
     gestational_weeks = fields.Integer(
         string='Gestational Weeks',
         compute='get_patient_evaluation_data'
@@ -248,6 +331,7 @@ class PrenatalEvaluation(models.Model):
     )
     invasive_placentation = fields.Selection(
         [
+            ('', ''),
             ('normal', 'Normal decidua'),
             ('accreta', 'Accreta'),
             ('increta', 'Increta'),
@@ -256,27 +340,46 @@ class PrenatalEvaluation(models.Model):
         string='Placentation',
         sort=False
     )
-    placenta_previa = fields.Boolean(string='Placenta Previa')
-    vasa_previa = fields.Boolean(string='Vasa Previa')
+    placenta_previa = fields.Boolean(
+        string='Placenta Previa'
+    )
+    vasa_previa = fields.Boolean(
+        string='Vasa Previa'
+    )
     fundal_height = fields.Integer(
         string='Fundal Height',
-        help="Distance between the symphysis pubis and the uterine fundus \
-        (S-FD) in cm"
+        help="Distance between the symphysis pubis and the uterine fundus (S-FD) in cm"
     )
     fetus_heart_rate = fields.Integer(
         string='Fetus heart rate',
         help='Fetus heart rate'
     )
-    efw = fields.Integer(string='EFW', help="Estimated Fetal Weight")
-    fetal_bpd = fields.Integer(string='BPD', help="Fetal Biparietal Diameter")
+    efw = fields.Integer(
+        string='EFW',
+        help="Estimated Fetal Weight"
+    )
+    fetal_bpd = fields.Integer(
+        string='BPD',
+        help="Fetal Biparietal Diameter"
+    )
     fetal_ac = fields.Integer(
         string='AC',
         help="Fetal Abdominal Circumference"
     )
-    fetal_hc = fields.Integer(string='HC', help="Fetal Head Circumference")
-    fetal_fl = fields.Integer(string='FL', help="Fetal Femur Length")
-    oligohydramnios = fields.Boolean(string='Oligohydramnios')
-    polihydramnios = fields.Boolean(string='Polihydramnios')
+    fetal_hc = fields.Integer(
+        string='HC',
+        help="Fetal Head Circumference"
+    )
+    fetal_fl = fields.Integer(
+        string='FL',
+        help="Fetal Femur Length"
+    )
+    oligohydramnios = fields.Boolean(
+        string='Oligohydramnios'
+    )
+    polihydramnios = fields.Boolean(
+        string='Polihydramnios'
+    )
     iugr = fields.Boolean(
         string='IUGR',
         help="Intra Uterine Growth Restriction"
@@ -289,32 +392,37 @@ class PrenatalEvaluation(models.Model):
         string="SDA",
         help="Signs of Digestive Systen Activity"
     )
-    notes = fields.Text(string="Notes")
+    notes = fields.Text(
+        string="Notes"
+    )
     institution = fields.Many2one(
-        comodel_name='res.partner',
+        comodel_name='medical.institution',
         string='Institution',
-        domain=[('is_institution', '=', True)]
     )
     healthprof = fields.Many2one(
-        comodel_name='medical.physician',
+        comodel_name='medical.healthprofessional',
         string='Health Prof',
+        help='Health Professional in charge, or that who entered the \
+            information in the system',
         readonly=True,
-        help="Health Professional in charge, or that who entered the \
-        information in the system"
     )
 
     def get_patient_evaluation_data(self):
-        gestational_age = datetime.datetime.date(self.evaluation_date) - \
-            self.name.lmp
+        gestational_age = datetime.datetime.date(
+            self.evaluation_date) - self.name.lmp
         self.gestational_weeks = (gestational_age.days) / 7
-        gestational_age = datetime.datetime.date(self.evaluation_date) - \
-            self.name.lmp
+        gestational_age = datetime.datetime.date(
+            self.evaluation_date) - self.name.lmp
         self.gestational_days = gestational_age.days
 
     @api.model
     def default_get(self, fields):
         res = super(PrenatalEvaluation, self).default_get(fields)
-        res.update({'evaluation_date': datetime.now()})
+        res.update(
+            {
+                'evaluation_date': datetime.now()
+            }
+        )
         return res
 
 
@@ -324,50 +432,80 @@ class PuerperiumMonitor(models.Model):
 
     name = fields.Many2one(
         comodel_name='medical.patient.pregnancy',
-        string='Patient Pregnancy'
+        string='Patient Pregnancy',
+        required=True,
+        domain=[
+            ('gender', '=', 'female')
+        ]
     )
-    date = fields.Datetime(string='Date and Time', required=True)
-    systolic = fields.Integer(string='Systolic Pressure')
-    diastolic = fields.Integer(string='Diastolic Pressure')
-    frequency = fields.Integer(string='Heart Frequency')
-    temperature = fields.Float(string='Temperature')
+    date = fields.Datetime(
+        string='Date and Time',
+        required=True
+    )
+    systolic = fields.Integer(
+        string='Systolic Pressure'
+    )
+    diastolic = fields.Integer(
+        string='Diastolic Pressure'
+    )
+    frequency = fields.Integer(
+        string='Heart Frequency'
+    )
+    temperature = fields.Float(
+        string='Temperature'
+    )
     lochia_amount = fields.Selection(
-        [('n', 'normal'), ('e', 'abundant'), ('h', 'hemorrhage')],
+        [
+            ('', ''),
+            ('n', 'normal'),
+            ('e', 'abundant'),
+            ('h', 'hemorrhage'),
+        ],
         string='Lochia amount',
         sort=False
     )
     lochia_color = fields.Selection(
-        [('r', 'rubra'), ('s', 'serosa'), ('a', 'alba')],
+        [
+            ('', ''),
+            ('r', 'rubra'),
+            ('s', 'serosa'),
+            ('a', 'alba'),
+        ],
         string='Lochia color',
         sort=False
     )
     lochia_odor = fields.Selection(
-        [('n', 'normal'), ('o', 'offensive')],
+        [
+            ('', ''),
+            ('n', 'normal'),
+            ('o', 'offensive'),
+        ],
         string='Lochia odor',
         sort=False
     )
     uterus_involution = fields.Integer(
         string='Fundal Height',
-        help="Distance between the symphysis pubis and the uterine fundus \
-        (S-FD) in cm"
+        help="Distance between the symphysis pubis and the uterine fundus (S-FD) in cm"
     )
     institution = fields.Many2one(
-        comodel_name='res.partner',
+        comodel_name='medical.institution',
         string='Institution',
-        domain=[('is_institution', '=', True)]
     )
     healthprof = fields.Many2one(
-        comodel_name='medical.physician',
+        comodel_name='medical.healthprofessional',
         string='Health Prof',
+        help="Health Professional in charge, or that who entered the information in the system",
         readonly=True,
-        help="Health Professional in charge, or that who entered the \
-        information in the system"
     )
 
     @api.model
     def default_get(self, fields):
         res = super(PuerperiumMonitor, self).default_get(fields)
-        res.update({'date': datetime.now()})
+        res.update(
+            {
+                'date': datetime.now()
+            }
+        )
         return res
 
 
@@ -377,12 +515,24 @@ class Perinatal(models.Model):
 
     name = fields.Many2one(
         comodel_name='medical.patient.pregnancy',
-        string='Patient Pregnancy'
+        string='Patient Pregnancy',
+        required=True,
+        domain=[
+            ('gender', '=', 'female')
+        ]
     )
-    admission_code = fields.Char(string='Code')
-    gravida_number = fields.Integer(string='Gravida #')
-    abortion = fields.Boolean(string='Abortion')
-    stillbirth = fields.Boolean(string='Stillbirth')
+    admission_code = fields.Char(
+        string='Code'
+    )
+    gravida_number = fields.Integer(
+        string='Gravida #'
+    )
+    abortion = fields.Boolean(
+        string='Abortion'
+    )
+    stillbirth = fields.Boolean(
+        string='Stillbirth'
+    )
     admission_date = fields.Datetime(
         string='Admission',
         help="Date when she was admitted to give birth",
@@ -394,10 +544,11 @@ class Perinatal(models.Model):
     )
     start_labor_mode = fields.Selection(
         [
+            ('', ''),
             ('v', 'Vaginal - Spontaneous'),
             ('ve', 'Vaginal - Vacuum Extraction'),
             ('vf', 'Vaginal - Forceps Extraction'),
-            ('c', 'C-section')
+            ('c', 'C-section'),
         ],
         string='Delivery mode',
         sort=False
@@ -406,9 +557,12 @@ class Perinatal(models.Model):
         string='Gestational wks',
         compute='get_perinatal_information'
     )
-    gestational_days = fields.Integer(string='Days')
+    gestational_days = fields.Integer(
+        string='Days'
+    )
     fetus_presentation = fields.Selection(
         [
+            ('', ''),
             ('cephalic', 'Cephalic'),
             ('breech', 'Breech'),
             ('shoulder', 'Shoulder'),
@@ -416,7 +570,9 @@ class Perinatal(models.Model):
         string='Fetus Presentation',
         sort=False
     )
-    dystocia = fields.Boolean(string='Dystocia')
+    dystocia = fields.Boolean(
+        string='Dystocia'
+    )
     placenta_incomplete = fields.Boolean(
         string='Incomplete',
         help='Incomplete Placenta'
@@ -429,9 +585,15 @@ class Perinatal(models.Model):
         string='Abruptio Placentae',
         help='Abruptio Placentae'
     )
-    episiotomy = fields.Boolean(string='Episiotomy')
-    vaginal_tearing = fields.Boolean(string='Vaginal tearing')
-    forceps = fields.Boolean(string='Forceps')
+    episiotomy = fields.Boolean(
+        string='Episiotomy'
+    )
+    vaginal_tearing = fields.Boolean(
+        string='Vaginal tearing'
+    )
+    forceps = fields.Boolean(
+        string='Forceps'
+    )
     monitoring = fields.One2many(
         comodel_name='medical.perinatal.monitor',
         inverse_name='name',
@@ -439,6 +601,7 @@ class Perinatal(models.Model):
     )
     laceration = fields.Selection(
         [
+            ('', ''),
             ('perineal', 'Perineal'),
             ('vaginal', 'Vaginal'),
             ('cervical', 'Cervical'),
@@ -453,6 +616,7 @@ class Perinatal(models.Model):
     )
     hematoma = fields.Selection(
         [
+            ('', ''),
             ('vaginal', 'Vaginal'),
             ('vulvar', 'Vulvar'),
             ('retroperitoneal', 'Retroperitoneal'),
@@ -460,29 +624,34 @@ class Perinatal(models.Model):
         string='Hematoma',
         sort=False
     )
-    notes = fields.Text(string='Notes')
+    notes = fields.Text(
+        string='Notes'
+    )
     institution = fields.Many2one(
-        comodel_name='res.partner',
+        comodel_name='medical.institution',
         string='Institution',
-        domain=[('is_institution', '=', True)]
     )
     healthprof = fields.Many2one(
-        'medical.physician',
-        'Health Prof',
-        readonly=True,
+        comodel_name='medical.healthprofessional',
+        string='Health Prof',
         help="Health Professional in charge, or that who entered the \
-        information in the system"
+            information in the system",
+        readonly=True,
     )
 
     @api.model
     def default_get(self, fields):
         res = super(Perinatal, self).default_get(fields)
-        res.update({'admission_date': datetime.now()})
+        res.update(
+            {
+                'admission_date': datetime.now()
+            }
+        )
         return res
 
     def get_perinatal_information(self):
-        gestational_age = datetime.datetime.date(self.admission_date) - \
-            self.name.lmp
+        gestational_age = datetime.datetime.date(
+            self.admission_date) - self.name.lmp
         self.gestational_weeks = (gestational_age.days) / 7
 
 
@@ -492,20 +661,45 @@ class PerinatalMonitor(models.Model):
 
     name = fields.Many2one(
         comodel_name='medical.perinatal',
-        string='Patient Perinatal Evaluation'
+        string='Patient Perinatal Evaluation',
+        required=True,
+        domain=[
+            ('gender', '=', 'female')
+        ]
     )
-    date = fields.Datetime(string='Date and Time')
-    systolic = fields.Integer(string='Systolic Pressure')
-    diastolic = fields.Integer(string='Diastolic Pressure')
-    contractions = fields.Integer(string='Contractions')
-    frequency = fields.Integer(string="Mother's Heart Frequency")
-    dilation = fields.Integer(string='Cervix dilation')
-    f_frequency = fields.Integer(string='Fetus Heart Frequency')
-    meconium = fields.Boolean(string='Meconium')
-    bleeding = fields.Boolean(string='Bleeding')
-    fundal_height = fields.Integer(string='Fundal Height')
+    date = fields.Datetime(
+        string='Date and Time'
+    )
+    systolic = fields.Integer(
+        string='Systolic Pressure'
+    )
+    diastolic = fields.Integer(
+        string='Diastolic Pressure'
+    )
+    contractions = fields.Integer(
+        string='Contractions'
+    )
+    frequency = fields.Integer(
+        string='Mother\'s Heart Frequency'
+    )
+    dilation = fields.Integer(
+        string='Cervix dilation'
+    )
+    f_frequency = fields.Integer(
+        string='Fetus Heart Frequency'
+    )
+    meconium = fields.Boolean(
+        string='Meconium'
+    )
+    bleeding = fields.Boolean(
+        string='Bleeding'
+    )
+    fundal_height = fields.Integer(
+        string='Fundal Height'
+    )
     fetus_position = fields.Selection(
         [
+            ('', ''),
             ('o', 'Occiput / Cephalic Posterior'),
             ('fb', 'Frank Breech'),
             ('cb', 'Complete Breech'),
@@ -519,13 +713,17 @@ class PerinatalMonitor(models.Model):
     @api.model
     def default_get(self, fields):
         res = super(PerinatalMonitor, self).default_get(fields)
-        res.update({'date': datetime.now()})
+        res.update(
+            {
+                'date': datetime.now()
+            }
+        )
         return res
 
 
 class MedicalPatient(models.Model):
     _inherit = 'medical.patient'
-    _description = 'Add gynecological and obstetric fields.'
+    _description = 'Add to the Medical patient_data class (medical.patient) the gynecological and obstetric fields.'
 
     currently_pregnant = fields.Boolean(
         string='Pregnant',
@@ -535,16 +733,23 @@ class MedicalPatient(models.Model):
         string='Fertile',
         help="Check if patient is in fertile age"
     )
-    menarche = fields.Integer(string='Menarche age')
-    menopausal = fields.Boolean(string='Menopausal')
-    menopause = fields.Integer(string='Menopause age')
+    menarche = fields.Integer(
+        string='Menarche age'
+    )
+    menopausal = fields.Boolean(
+        string='Menopausal'
+    )
+    menopause = fields.Integer(
+        string='Menopause age'
+    )
     mammography = fields.Boolean(
         string='Mammography',
         help="Check if the patient does periodic mammographys"
     )
     mammography_last = fields.Date(
         string='Last mammography',
-        help="Enter the date of the last mammography"
+        help="Enter the date of the last mammography",
+        compute='get_test_info'
     )
     breast_self_examination = fields.Boolean(
         string='Breast self-examination',
@@ -556,7 +761,8 @@ class MedicalPatient(models.Model):
     )
     pap_test_last = fields.Date(
         string='Last PAP test',
-        help="Enter the date of the last Papanicolau test"
+        help="Enter the date of the last Papanicolau test",
+        compute='get_test_info'
     )
     colposcopy = fields.Boolean(
         string='Colposcopy',
@@ -564,7 +770,8 @@ class MedicalPatient(models.Model):
     )
     colposcopy_last = fields.Date(
         string='Last colposcopy',
-        help="Enter the date of the last colposcopy"
+        help="Enter the date of the last colposcopy",
+        compute='get_test_info'
     )
     gravida = fields.Integer(
         string='Pregnancies',
@@ -590,10 +797,11 @@ class MedicalPatient(models.Model):
     )
     gpa = fields.Char(
         string='GPA',
-        help="Gravida, Para, Abortus Notation. For example G4P3A1 : 4 \
-        Pregnancies, 3 viable and 1 abortion"
+        help="Gravida, Para, Abortus Notation. For example G4P3A1 : 4 Pregnancies, 3 viable and 1 abortion"
     )
-    born_alive = fields.Integer(string='Born Alive')
+    born_alive = fields.Integer(
+        string='Born Alive'
+    )
     deaths_1st_week = fields.Integer(
         string='Deceased during 1st week',
         help="Number of babies that die in the first week"
@@ -601,11 +809,6 @@ class MedicalPatient(models.Model):
     deaths_2nd_week = fields.Integer(
         string='Deceased after 2nd week',
         help="Number of babies that die after the second week"
-    )
-    perinatal = fields.One2many(
-        comodel_name='medical.perinatal',
-        inverse_name='name',
-        string='Perinatal Info'
     )
     menstrual_history = fields.One2many(
         comodel_name='medical.patient.menstrual_history',
@@ -633,6 +836,26 @@ class MedicalPatient(models.Model):
         string='Pregnancies'
     )
 
+    def get_test_info(self):
+        if len(self.pap_history):
+            self.pap_test = True
+            self.pap_test_last = self.pap_history[-1].evaluation_date
+        else:
+            self.pap_test = False
+            self.pap_test_last = ''
+        if len(self.colposcopy_history):
+            self.colposcopy = True
+            self.colposcopy_last = self.colposcopy_history[-1].evaluation_date
+        else:
+            self.colposcopy = False
+            self.colposcopy_last = ''
+        if len(self.mammography_history):
+            self.mammography = True
+            self.mammography_last = self.mammography_history[-1].evaluation_date
+        else:
+            self.mammography = False
+            self.mammography_last = ''
+
     def get_pregnancy_info(self):
         self.currently_pregnant = False
         for pregnancy_history in self.pregnancy_history:
@@ -640,7 +863,8 @@ class MedicalPatient(models.Model):
                 self.currently_pregnant = True
 
     def patient_obstetric_info(self):
-        """Returns number of pregnancies, perterm, abortion and stillbirths"""
+        ''' Return the number of pregnancies, perterm,
+        abortion and stillbirths '''
         counter = 0
         pregnancies = len(self.pregnancy_history)
         self.gravida = pregnancies
@@ -648,25 +872,26 @@ class MedicalPatient(models.Model):
         while counter < pregnancies:
             result = self.pregnancy_history[counter].pregnancy_end_result
             preg_weeks = self.pregnancy_history[counter].pregnancy_end_age
-            if (result == "live_birth" and preg_weeks < 37):
-                prematures = prematures + 1
-            counter = counter + 1
+            if (result == "live_birth" and
+                    preg_weeks < 37):
+                prematures = prematures+1
+            counter = counter+1
         self.premature = prematures
         abortions = 0
         while counter < pregnancies:
             result = self.pregnancy_history[counter].pregnancy_end_result
             preg_weeks = self.pregnancy_history[counter].pregnancy_end_age
             if (result == "abortion"):
-                abortions = abortions + 1
-            counter = counter + 1
+                abortions = abortions+1
+            counter = counter+1
         self.abortions = abortions
         stillbirths = 0
         while counter < pregnancies:
             result = self.pregnancy_history[counter].pregnancy_end_result
             preg_weeks = self.pregnancy_history[counter].pregnancy_end_age
             if (result == "stillbirth"):
-                stillbirths = stillbirths + 1
-            counter = counter + 1
+                stillbirths = stillbirths+1
+            counter = counter+1
         self.stillbirths = stillbirths
 
 
@@ -678,12 +903,17 @@ class PatientMenstrualHistory(models.Model):
         comodel_name='medical.patient',
         string='Patient',
         readonly=True,
-        required=True
+        required=True,
+        domain=[
+            ('gender', '=', 'female')
+        ]
     )
     evaluation = fields.Many2one(
         comodel_name='medical.patient.evaluation',
         string='Evaluation',
-        domain=[('patient', '=', 'name')],
+        domain=[
+            ('patient', '=', 'name')
+        ],
         depends=['name']
     )
     evaluation_date = fields.Date(
@@ -696,9 +926,16 @@ class PatientMenstrualHistory(models.Model):
         help="Last Menstrual Period",
         required=True
     )
-    lmp_length = fields.Integer(string='Length', required=True)
-    is_regular = fields.Boolean(string='Regular')
-    dysmenorrhea = fields.Boolean(string='Dysmenorrhea')
+    lmp_length = fields.Integer(
+        string='Length',
+        required=True
+    )
+    is_regular = fields.Boolean(
+        string='Regular'
+    )
+    dysmenorrhea = fields.Boolean(
+        string='Dysmenorrhea'
+    )
     frequency = fields.Selection(
         [
             ('amenorrhea', 'amenorrhea'),
@@ -707,8 +944,7 @@ class PatientMenstrualHistory(models.Model):
             ('polymenorrhea', 'polymenorrhea'),
         ],
         string='frequency',
-        sort=False,
-        default='eumenorrhea'
+        sort=False
     )
     volume = fields.Selection(
         [
@@ -717,26 +953,36 @@ class PatientMenstrualHistory(models.Model):
             ('menorrhagia', 'menorrhagia'),
         ],
         string='volume',
-        sort=False,
-        default='normal'
+        sort=False
     )
     institution = fields.Many2one(
-        comodel_name='res.partner',
+        comodel_name='medical.institution',
         string='Institution',
-        domain=[('is_institution', '=', True)]
     )
     healthprof = fields.Many2one(
-        'medical.physician',
-        'Reviewed',
+        comodel_name='medical.healthprofessional',
+        string='Reviewed',
+        help="Health Professional who reviewed the information",
         readonly=True,
-        help="Health Professional who reviewed the information"
     )
 
     @api.model
     def default_get(self, fields):
         res = super(PatientMenstrualHistory, self).default_get(fields)
-        res.update({'evaluation_date': datetime.now()})
+        res.update(
+            {
+                'evaluation_date': datetime.now()
+            }
+        )
         return res
+
+    @api.model
+    def default_frequency():
+        return 'eumenorrhea'
+
+    @api.model
+    def default_volume():
+        return 'normal'
 
 
 class PatientMammographyHistory(models.Model):
@@ -746,118 +992,10 @@ class PatientMammographyHistory(models.Model):
     name = fields.Many2one(
         comodel_name='medical.patient',
         string='Patient',
-        readonly=True,
-        required=True
-    )
-    evaluation = fields.Many2one(
-        comodel_name='medical.patient.evaluation',
-        string='Evaluation',
-        domain=[('patient', '=', 'name')],
-        depends=['name']
-    )
-    evaluation_date = fields.Date(
-        string='Date',
-        help="Date",
-        required=True
-    )
-    last_mammography = fields.Date(string='Previous', help="Last Mammography")
-    result = fields.Selection(
-        [('normal', 'normal'), ('abnormal', 'abnormal')],
-        string='result',
-        help="Please check the lab test results if the module is installed",
-        sort=False
-    )
-    comments = fields.Char(string='Remarks')
-    institution = fields.Many2one(
-        comodel_name='res.partner',
-        string='Institution',
-        domain=[('is_institution', '=', True)]
-    )
-    healthprof = fields.Many2one(
-        'medical.physician',
-        'Reviewed',
-        readonly=True,
-        help="Health Professional who last reviewed the test"
-    )
-
-    @api.model
-    def default_get(self, fields):
-        res = super(PatientMammographyHistory, self).default_get(fields)
-        res.update({
-            'evaluation_date': datetime.now(),
-            'last_mammography': datetime.now()
-        })
-        return res
-
-
-class PatientPAPHistory(models.Model):
-    _name = 'medical.patient.pap_history'
-    _description = 'PAP Test History'
-
-    name = fields.Many2one(
-        comodel_name='medical.patient',
-        string='Patient',
-        readonly=True,
-        required=True
-    )
-    evaluation = fields.Many2one(
-        comodel_name='medical.patient.evaluation',
-        string='Evaluation',
-        domain=[('patient', '=', 'name')],
-        depends=['name']
-    )
-    evaluation_date = fields.Date(
-        string='Date',
-        help="Date",
-        required=True
-    )
-    last_pap = fields.Date(string='Previous', help="Last Papanicolau")
-    result = fields.Selection(
-        [
-            ('negative', 'Negative'),
-            ('c1', 'ASC-US'),
-            ('c2', 'ASC-H'),
-            ('g1', 'ASG'),
-            ('c3', 'LSIL'),
-            ('c4', 'HSIL'),
-            ('g4', 'AIS')
-        ],
-        string='result',
-        help="Please check the lab results if the module is installed",
-        sort=False
-    )
-    comments = fields.Char(string='Remarks')
-    institution = fields.Many2one(
-        comodel_name='res.partner',
-        string='Institution',
-        domain=[('is_institution', '=', True)]
-    )
-    healthprof = fields.Many2one(
-        'medical.physician',
-        'Reviewed',
-        readonly=True,
-        help="Health Professional who last reviewed the test"
-    )
-
-    @api.model
-    def default_get(self, fields):
-        res = super(PatientPAPHistory, self).default_get(fields)
-        res.update({
-            'evaluation_date': datetime.now(),
-            'last_pap': datetime.now()
-        })
-        return res
-
-
-class PatientColposcopyHistory(models.Model):
-    _name = 'medical.patient.colposcopy_history'
-    _description = 'Colposcopy History'
-
-    name = fields.Many2one(
-        comodel_name='medical.patient',
-        string='Patient',
-        readonly=True,
-        required=True
+        required=True,
+        domain=[
+            ('gender', '=', 'female')
+        ]
     )
     evaluation = fields.Many2one(
         comodel_name='medical.patient.evaluation',
@@ -872,31 +1010,197 @@ class PatientColposcopyHistory(models.Model):
         help="Date",
         required=True
     )
-    last_colposcopy = fields.Date(string='Previous', help="Last colposcopy")
+    last_mammography = fields.Date(
+        string='Previous',
+        help="Last Mammography"
+    )
     result = fields.Selection(
-        [('normal', 'normal'), ('abnormal', 'abnormal')],
+        [
+            ('', ''),
+            ('normal', 'normal'),
+            ('abnormal', 'abnormal'),
+        ],
         string='result',
         help="Please check the lab test results if the module is installed",
         sort=False
     )
-    comments = fields.Char(string='Remarks')
+    comments = fields.Char(
+        string='Remarks'
+    )
     institution = fields.Many2one(
-        comodel_name='res.partner',
+        comodel_name='medical.institution',
         string='Institution',
-        domain=[('is_institution', '=', True)]
     )
     healthprof = fields.Many2one(
-        'medical.physician',
-        'Reviewed',
+        comodel_name='medical.healthprofessional',
+        string='Reviewed',
+        help="Health Professional who last reviewed the test",
         readonly=True,
-        help="Health Professional who last reviewed the test"
+    )
+
+    @api.depends('name')
+    def on_change_name(self):
+        if len(self.name.pap_history):
+            mammography_last = self.name.mammography_history[-1]
+            self.last_mammography = mammography_last.evaluation_date
+        else:
+            self.last_mammography = ''
+
+    @api.model
+    def default_get(self, fields):
+        res = super(PatientMammographyHistory, self).default_get(fields)
+        res.update(
+            {
+                'evaluation_date': datetime.now()
+            }
+        )
+        return res
+
+
+class PatientPAPHistory(models.Model):
+    _name = 'medical.patient.pap_history'
+    _description = 'PAP Test History'
+
+    name = fields.Many2one(
+        comodel_name='medical.patient',
+        string='Patient',
+        required=True,
+        domain=[
+            ('gender', '=', 'female')
+        ]
+    )
+    evaluation = fields.Many2one(
+        comodel_name='medical.patient.evaluation',
+        string='Evaluation',
+        domain=[
+            ('patient', '=', 'name')
+        ],
+        depends=['name']
+    )
+    evaluation_date = fields.Date(
+        string='Date',
+        help="Date",
+        required=True
+    )
+    last_pap = fields.Date(
+        string='Previous',
+        help="Last Papanicolau"
+    )
+    result = fields.Selection(
+        [
+            ('', ''),
+            ('negative', 'Negative'),
+            ('c1', 'ASC-US'),
+            ('c2', 'ASC-H'),
+            ('g1', 'ASG'),
+            ('c3', 'LSIL'),
+            ('c4', 'HSIL'),
+            ('g4', 'AIS'),
+        ],
+        string='result',
+        help="Please check the lab results if the module is installed",
+        sort=False
+    )
+    comments = fields.Char(
+        string='Remarks'
+    )
+    institution = fields.Many2one(
+        comodel_name='medical.institution',
+        string='Institution',
+    )
+    healthprof = fields.Many2one(
+        comodel_name='medical.healthprofessional',
+        string='Reviewed',
+        help="Health Professional who last reviewed the test",
+        readonly=True,
+    )
+
+    @api.model
+    def default_get(self, fields):
+        res = super(PatientPAPHistory, self).default_get(fields)
+        res.update(
+            {
+                'evaluation_date': datetime.now()
+            }
+        )
+        return res
+
+    @api.depends('name')
+    def on_change_name(self):
+        if len(self.name.pap_history):
+            pap_test_last = self.name.pap_history[-1]
+            self.last_pap = pap_test_last.evaluation_date
+        else:
+            self.last_pap = ''
+
+
+class PatientColposcopyHistory(models.Model):
+    _name = 'medical.patient.colposcopy_history'
+    _description = 'Colposcopy History'
+
+    name = fields.Many2one(
+        comodel_name='medical.patient',
+        string='Patient',
+        required=True,
+        domain=[
+            ('gender', '=', 'female')
+        ]
+    )
+    evaluation = fields.Many2one(
+        comodel_name='medical.patient.evaluation',
+        string='Evaluation',
+        domain=[
+            ('patient', '=', 'name')
+        ],
+        depends=['name']
+    )
+    evaluation_date = fields.Date(
+        string='Date',
+        help="Date",
+        required=True
+    )
+    last_colposcopy = fields.Date(
+        string='Previous',
+        help="Last colposcopy"
+    )
+    result = fields.Selection(
+        [
+            ('', ''),
+            ('normal', 'normal'),
+            ('abnormal', 'abnormal'),
+        ],
+        string='result',
+        help="Please check the lab test results if the module is installed",
+        sort=False
+    )
+    comments = fields.Char(
+        string='Remarks'
+    )
+    institution = fields.Many2one(
+        comodel_name='medical.institution',
+        string='Institution',
+    )
+    healthprof = fields.Many2one(
+        comodel_name='medical.healthprofessional',
+        string='Reviewed',
+        help="Health Professional who last reviewed the test",
+        readonly=True,
     )
 
     @api.model
     def default_get(self, fields):
         res = super(PatientColposcopyHistory, self).default_get(fields)
-        res.update({
-                'evaluation_date': datetime.now(),
-                'last_colposcopy': datetime.now()
-        })
+        res.update(
+            {
+                'evaluation_date': datetime.now()
+            }
+        )
         return res
+
+    @api.depends('name')
+    def on_change_name(self):
+        if len(self.name.colposcopy_history):
+            colposcopy_last = self.name.colposcopy_history[-1]
+            self.last_colposcopy = colposcopy_last.evaluation_date
+        else:
+            self.last_colposcopy = ''
